@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المستقبل ون سوفت - حلول برمجية ثورية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar" id="navbar">
+  <div class="logo">
+    <img src="img/logo.png" alt="المستقبل ون سوفت">
+    <span>المستقبل <small>ون سوفت</small></span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero">الرئيسية</a></li>
+    <li><a href="#about">عن المكتب</a></li>
+    <li><a href="#problems">التشخيص</a></li>
+    <li><a href="#catalog">أنظمتنا</a></li>
+    <li><a href="#dashboard">المحاكي</a></li>
+    <li><a href="#quiz">التشخيص الذكي</a></li>
+    <li><a href="#estimator">التسعير</a></li>
+    <li><a href="#rfq" class="nav-cta">اطلب مشروعك</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle"><i class="bi bi-list"></i></button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="bi bi-rocket-takeoff"></i> ثورة رقمية في إدارة مؤسستك</div>
+    <h1>ارتقِ بمؤسستك إلى <span class="highlight">الجيل الرابع</span><br>من البرمجيات الذكية</h1>
+    <p>نقضي على الفوضى الإدارية والتشغيلية عبر هندسة برمجيات ثورية تربط فروعك ومخازنك بدقة متناهية وبنية تحتية لا تقبل السقوط</p>
+    <div class="hero-btns">
+      <a href="#rfq" class="btn-primary"><i class="bi bi-calendar-check"></i> احجز مشروعك الآن</a>
+      <a href="#catalog" class="btn-secondary"><i class="bi bi-boxes"></i> تصفح أنظمتنا</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">+<span id="clientsCount">0</span></div><div class="label">عميل نشط</div></div>
+      <div class="hero-stat"><div class="num"><span id="systemsCount">0</span>+</div><div class="label">نظام ذكي</div></div>
+      <div class="hero-stat"><div class="num"><span id="uptimeCount">99.9</span>%</div><div class="label">نسبة التشغيل</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRAND / ABOUT ============ -->
+<section class="section brand-section" id="about">
+  <div class="container">
+    <div class="brand-wrap">
+      <div class="brand-visual">
+        <img src="img/logo.png" alt="المستقبل ون سوفت">
+      </div>
+      <div class="brand-text">
+        <h2>المستقبل ون سوفت</h2>
+        <p class="brand-sub">شريكك الرقمي في التحول المؤسسي</p>
+        <p>نحن فريق هندسي متخصص في بناء الحلول البرمجية الثورية التي تربط المؤسسات بفروعها ومخازنها بدقة متناهية. من أنظمة ERP المتكاملة إلى الحلول الطبية وأنظمة المخازن الذكية، نقدم بنية تحتية لا تقبل السقوط مع امتثال كامل لأحدث التشريعات المالية والتقنية.</p>
+        <div class="brand-values">
+          <span class="brand-value"><i class="bi bi-check-circle-fill"></i> رؤية رقمية</span>
+          <span class="brand-value"><i class="bi bi-check-circle-fill"></i> امتثال كامل</span>
+          <span class="brand-value"><i class="bi bi-check-circle-fill"></i> دعم فوري</span>
+          <span class="brand-value"><i class="bi bi-check-circle-fill"></i> أمان مطلق</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CATALOG ============ -->
+<section class="section section-alt" id="catalog">
+  <div class="container">
+    <h2 class="section-title">أنظمة قمنا بتطويرها <span class="title-soft">— مشاريعنا السابقة</span></h2>
+    <p class="section-subtitle">نفخر بتقديم باقة من أقوى الحلول البرمجية التي طورناها — كل نظام منها يحمل بصمة هندسية فريدة ويخدم قطاعاً محدداً بدقة متناهية</p>
+    <span class="title-accent"></span>
+
+    <div class="catalog-filters" style="margin-top: 2rem;"></div>
+    <div class="catalog-grid" id="catalogGrid"></div>
+  </div>
+</section>
+
+<!-- ============ DASHBOARD SIMULATOR ============ -->
+<section class="section section-dark" id="dashboard">
+  <div class="container">
+    <h2 class="section-title">محاكي الأنظمة الحي</h2>
+    <p class="section-subtitle">لوحة تحكم حية تعمل أمام عينيك — جرب أداء أنظمتك المستقبلية الآن</p>
+    <span class="title-accent"></span>
+
+    <div class="dashboard-sim animate-on-scroll" style="margin-top: 3rem;">
+      <div class="dash-header">
+        <button class="dash-tab active" data-dash="sales"><i class="bi bi-graph-up-arrow"></i> المبيعات والأرباح</button>
+        <button class="dash-tab" data-dash="branches"><i class="bi bi-building"></i> حالة الفروع</button>
+        <button class="dash-tab" data-dash="network"><i class="bi bi-shield-check"></i> حماية الشبكات</button>
+      </div>
+      <div class="dash-body" id="dashBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ ============ -->
+<section class="section section-alt" id="quiz">
+  <div class="container">
+    <h2 class="section-title">التشخيص الذكي لأزمات منشأتك</h2>
+    <p class="section-subtitle">3 أسئلة فقط — ونخبرك بالحل البرمجي الأنسب لك</p>
+    <span class="title-accent"></span>
+
+    <div class="quiz-container animate-on-scroll" style="margin-top: 3rem;">
+      <div class="quiz-step active" data-step="1">
+        <h3>ما هي كبرى أزمات منشأتك الحالية؟</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-answer="finance">💰 أزمات مالية ومحاسبية وضريبية</button>
+          <button class="quiz-option" data-answer="network">🌐 ترهل في الشبكات وربط الفروع</button>
+          <button class="quiz-option" data-answer="medical">🏥 إدارة منشآت طبية معقدة وغير منسجمة</button>
+        </div>
+      </div>
+      <div class="quiz-step" data-step="2">
+        <h3>ما حجم مؤسستك؟</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-answer="small">🏢 صغيرة (أقل من 10 موظفين)</button>
+          <button class="quiz-option" data-answer="medium">🏢 متوسطة (10 - 50 موظفاً)</button>
+          <button class="quiz-option" data-answer="large">🏢 كبيرة (أكثر من 50 موظفاً)</button>
+        </div>
+      </div>
+      <div class="quiz-step" data-step="3">
+        <h3>ما هي الأولوية القصوى لديك في المرحلة القادمة؟</h3>
+        <div class="quiz-options">
+          <button class="quiz-option" data-answer="speed">⚡ سرعة التشغيل والأتمتة</button>
+          <button class="quiz-option" data-answer="control">🎯 السيطرة والرقابة الكاملة</button>
+          <button class="quiz-option" data-answer="growth">📈 التوسع والنمو</button>
+        </div>
+      </div>
+      <div class="quiz-step" data-step="result">
+        <div class="quiz-result">
+          <i class="bi bi-check-circle-fill"></i>
+          <h3>تم التشخيص! الحل الأنسب لك</h3>
+          <p id="quizResultText">نظام ون سوفت ERP هو الخيار الأمثل لمؤسستك — يجمع بين المرونة والقوة والامتثال الكامل.</p>
+          <a href="#rfq" class="btn-primary"><i class="bi bi-file-earmark-text"></i> احصل على عرض تسعير مخصص</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COST ESTIMATOR ============ -->
+<section class="section" id="estimator">
+  <div class="container">
+    <h2 class="section-title">حاسبة الأسعار التقديرية</h2>
+    <p class="section-subtitle">حدد احتياجاتك واحصل على نطاق سعري فوري — بشفافية كاملة</p>
+    <span class="title-accent"></span>
+
+    <div class="estimator-toggle animate-on-scroll" style="margin-top: 3rem;" onclick="toggleEstimator()">
+      <div class="estimator-toggle-header">
+        <div>
+          <h3>احسب تكلفة مشروعك التقديرية</h3>
+          <p>اضغط لعرض الحاسبة وتحديد احتياجاتك</p>
+        </div>
+        <i class="bi bi-chevron-down" id="estimatorToggleIcon"></i>
+      </div>
+    </div>
+
+    <div class="estimator-collapse" id="estimatorCollapse">
+      <div class="estimator-grid">
+        <div class="estimator-controls">
+          <div class="control-group">
+            <label>عدد الفروع المتوقعة</label>
+            <div class="range-wrap">
+              <input type="range" id="branchesRange" min="1" max="20" value="3">
+              <span class="range-val" id="branchesVal">3</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label>عدد المستخدمين</label>
+            <div class="range-wrap">
+              <input type="range" id="usersRange" min="2" max="50" value="10">
+              <span class="range-val" id="usersVal">10</span>
+            </div>
+          </div>
+          <div class="control-group">
+            <label>نوع النشاط</label>
+            <select id="activityType">
+              <option value="erp">ERP - إدارة المؤسسات</option>
+              <option value="medical">نظام طبي متكامل</option>
+              <option value="inventory">نظام مخازن وضريبة</option>
+              <option value="hybrid">حل هجين (ERP + طبي)</option>
+            </select>
+          </div>
+          <button class="btn-primary pricing-cta" onclick="document.getElementById('rfq').scrollIntoView({behavior:'smooth'})">
+            <i class="bi bi-file-earmark-text"></i> طلب عرض سعر رسمي
+          </button>
+        </div>
+        <div class="estimator-result">
+          <div class="price-label">النطاق السعري التقديري السنوي</div>
+          <div class="price-range" id="priceRange">$5,000 – $12,000</div>
+          <div class="price-note">* سعر استرشادي — السعر النهائي حسب المتطلبات التقنية والتخصيص</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RFQ WIZARD ============ -->
+<section class="section section-alt" id="rfq">
+  <div class="container">
+    <h2 class="section-title">نموذج طلب المشروع المتكامل</h2>
+    <p class="section-subtitle">4 خطوات فقط — ابدأ رحلة تحولك الرقمي اليوم</p>
+    <span class="title-accent"></span>
+
+    <div class="rfq-widget animate-on-scroll" style="margin-top: 3rem;">
+      <i class="bi bi-file-earmark-text"></i>
+      <h3>أخبرنا عن مشروعك</h3>
+      <p>نموذج ذكي من 4 خطوات يحدد احتياجاتك بدقة ويوصلك بفريقنا الهندسي</p>
+      <button class="btn-primary" id="openRfqModal"><i class="bi bi-send"></i> ابدأ الآن</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RFQ MODAL ============ -->
+<div class="modal-overlay" id="rfqModalOverlay">
+  <div class="modal-content modal-lg">
+    <button class="modal-close" id="rfqModalClose"><i class="bi bi-x"></i></button>
+    <div class="rfq-steps">
+      <div class="rfq-step-indicator active" data-rfq-step="1">1</div>
+      <div class="rfq-step-indicator" data-rfq-step="2">2</div>
+      <div class="rfq-step-indicator" data-rfq-step="3">3</div>
+      <div class="rfq-step-indicator" data-rfq-step="4">4</div>
+    </div>
+    <div class="rfq-form" id="rfqForm">
+      <!-- Step 1 -->
+      <div class="rfq-page active" data-page="1">
+        <h3><i class="bi bi-person"></i> بيانات الهوية والتواصل</h3>
+        <div class="form-group">
+          <label>اسم الجهة / المؤسسة <span style="color:var(--color-error-500)">*</span></label>
+          <input type="text" id="rfqCompany" placeholder="مثال: شركة المستقبل للتجارة">
+        </div>
+        <div class="form-group">
+          <label>صفة المخاطب <span style="color:var(--color-error-500)">*</span></label>
+          <input type="text" id="rfqName" placeholder="الاسم الكامل">
+        </div>
+        <div class="form-group">
+          <label>رقم الواتساب (بالصيغة الدولية) <span style="color:var(--color-error-500)">*</span></label>
+          <input type="tel" id="rfqPhone" placeholder="+966 5X XXX XXXX" style="direction: ltr; text-align: left;">
+        </div>
+        <div class="form-group">
+          <label>البريد الرسمي <span style="color:var(--color-error-500)">*</span></label>
+          <input type="email" id="rfqEmail" placeholder="info@company.com" style="direction: ltr; text-align: left;">
+        </div>
+        <div class="rfq-nav">
+          <span></span>
+          <button class="btn-primary rfq-next" data-next="2"><i class="bi bi-arrow-left"></i> التالي</button>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="rfq-page" data-page="2">
+        <h3><i class="bi bi-boxes"></i> طبيعة ونطاق المشروع</h3>
+        <div class="form-group">
+          <label>نوع الحل المطلوب</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" value="erp" checked> ERP</label>
+            <label><input type="checkbox" value="medical"> نظام طبي</label>
+            <label><input type="checkbox" value="network"> تأمين وحظر شبكات</label>
+            <label><input type="checkbox" value="mobile"> تطبيق موبايل</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>عدد الفروع <span style="color: var(--color-primary-500); font-weight: 700;" id="rfqBranchesDisplay">3</span></label>
+          <input type="range" min="1" max="20" value="3" id="rfqBranches" style="width:100%">
+        </div>
+        <div class="form-group">
+          <label>عدد المستخدمين <span style="color: var(--color-primary-500); font-weight: 700;" id="rfqUsersDisplay">10</span></label>
+          <input type="range" min="2" max="50" value="10" id="rfqUsers" style="width:100%">
+        </div>
+        <div class="rfq-nav">
+          <button class="btn-secondary btn-prev" data-prev="1"><i class="bi bi-arrow-right"></i> السابق</button>
+          <button class="btn-primary rfq-next" data-next="3"><i class="bi bi-arrow-left"></i> التالي</button>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="rfq-page" data-page="3">
+        <h3><i class="bi bi-gear"></i> المتطلبات الفنية والتشغيلية</h3>
+        <div class="form-group">
+          <label>بيئة التشغيل المفضلة</label>
+          <select id="rfqEnv">
+            <option value="cloud">سحابي بالكامل (Cloud)</option>
+            <option value="onprem">محلي (On-Premise)</option>
+            <option value="hybrid">هجين (Hybrid)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>ارفاق ملف كراسة الشروط (PDF)</label>
+          <div class="drop-zone" id="dropZone">
+            <i class="bi bi-cloud-upload"></i>
+            <p>اسحب وأفلت الملف هنا أو <strong>اضغط للتصفح</strong></p>
+            <input type="file" accept=".pdf" id="fileInput" style="display:none">
+          </div>
+          <div id="fileStatus" style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--color-success-500);"></div>
+        </div>
+        <div class="form-group">
+          <label>ملاحظات إضافية</label>
+          <textarea id="rfqNotes" placeholder="اذكر أي متطلبات خاصة أو تفاصيل إضافية..."></textarea>
+        </div>
+        <div class="rfq-nav">
+          <button class="btn-secondary btn-prev" data-prev="2"><i class="bi bi-arrow-right"></i> السابق</button>
+          <button class="btn-primary rfq-next" data-next="4"><i class="bi bi-arrow-left"></i> التالي</button>
+        </div>
+      </div>
+      <!-- Step 4 -->
+      <div class="rfq-page" data-page="4">
+        <h3><i class="bi bi-coin"></i> الميزانية والإطار الزمني</h3>
+        <div class="form-group">
+          <label>الميزانية التقديرية</label>
+          <select id="rfqBudget">
+            <option value="small">أقل من $5,000</option>
+            <option value="medium">$5,000 – $15,000</option>
+            <option value="large">$15,000 – $50,000</option>
+            <option value="enterprise">أكثر من $50,000</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>الإطار الزمني المطلوب</label>
+          <select id="rfqTimeline">
+            <option value="urgent">عاجل (خلال شهر)</option>
+            <option value="normal">عادي (1 - 3 أشهر)</option>
+            <option value="flexible">مرن (حسب الجدول الزمني المقترح)</option>
+          </select>
+        </div>
+        <div class="rfq-nav">
+          <button class="btn-secondary btn-prev" data-prev="3"><i class="bi bi-arrow-right"></i> السابق</button>
+          <button class="btn-primary" id="rfqSubmit"><i class="bi bi-send"></i> إرسال الطلب</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROBLEMS / MANIFESTO ============ -->
+<section class="section" id="problems">
+  <div class="container">
+    <h2 class="section-title">عيادة تشخيص الأزمات التشغيلية</h2>
+    <p class="section-subtitle">نحدد بدقة نقاط الألم في مؤسستك قبل أن تقدم لك الحل — لأن التشخيص الصحيح هو نصف العلاج</p>
+    <span class="title-accent"></span>
+    <div class="problems-grid" style="margin-top: 3rem;">
+
+      <div class="problem-card animate-on-scroll">
+        <div class="icon-wrap"><i class="bi bi-eye-slash"></i></div>
+        <h3>العمى التقني</h3>
+        <p class="problem-text">غياب الرؤية الواضحة لأداء مؤسستك — أنت تدير أعمى في عصر البيانات</p>
+        <p class="solution-text"><i class="bi bi-check-circle-fill"></i> لوحات قيادة حية وتحليلات لحظية: شاهد كل شيء بنقرة واحدة</p>
+      </div>
+
+      <div class="problem-card animate-on-scroll">
+        <div class="icon-wrap"><i class="bi bi-bell-slash"></i></div>
+        <h3>غياب الإنذار المبكر</h3>
+        <p class="problem-text">تكتشف المشكلة بعد فوات الأوان — لا مؤشرات تحذيرية ولا تنبيهات استباقية</p>
+        <p class="solution-text"><i class="bi bi-check-circle-fill"></i> نظام إنذار ذكي يُنبّهك قبل وقوع الكارثة بدقائق ثمينة</p>
+      </div>
+
+      <div class="problem-card animate-on-scroll">
+        <div class="icon-wrap"><i class="bi bi-person-badge"></i></div>
+        <h3>التبعية البشرية</h3>
+        <p class="problem-text">موظف واحد يملك كل المفاتيح — بغيابه تتوقف المنظومة بالكامل</p>
+        <p class="solution-text"><i class="bi bi-check-circle-fill"></i> أتمتة كاملة لإجراءات العمل تكسر احتكار المعلومة وتؤمن الاستمرارية</p>
+      </div>
+
+      <div class="problem-card animate-on-scroll">
+        <div class="icon-wrap"><i class="bi bi-diagram-3"></i></div>
+        <h3>تشتت البيانات</h3>
+        <p class="problem-text">ملفات منفصلة، إكسلات متناثرة، ولا رابط بين المخازن والفروع</p>
+        <p class="solution-text"><i class="bi bi-check-circle-fill"></i> نواة موحدة تجمع كل البيانات في نظام مركزي واحد آني</p>
+      </div>
+
+      <div class="problem-card animate-on-scroll">
+        <div class="icon-wrap"><i class="bi bi-clipboard-check"></i></div>
+        <h3>ضعف الامتثال</h3>
+        <p class="problem-text">تخبط في التقارير المالية والضريبية — عرضة للغرامات والمخالفات</p>
+        <p class="solution-text"><i class="bi bi-check-circle-fill"></i> امتثال كامل للتشريعات المحلية مع فاتورة إلكترونية معتمدة و QR Code</p>
+      </div>
+
+      <div class="problem-card animate-on-scroll">
+        <div class="icon-wrap"><i class="bi bi-speedometer2"></i></div>
+        <h3>بطء التشغيل</h3>
+        <p class="problem-text">أنظمة بطيئة، تعطل متكرر، وانتظار لا ينتهي لإنجاز المعاملات</p>
+        <p class="solution-text"><i class="bi bi-check-circle-fill"></i> بنية تحتية سحابية فائقة السرعة بتقنية Local-first لا تتأثر بانقطاع النت</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:1rem;">
+        <img src="img/logo.png" alt="المستقبل ون سوفت" style="height: 40px; width: auto;">
+        <span style="font-size:1.3rem; font-weight:800; color:#fff;">المستقبل <span style="color:var(--color-accent-400);">ون سوفت</span></span>
+      </div>
+      <p>نقضي على الفوضى الإدارية والتشغيلية عبر هندسة برمجيات ثورية. حلول ERP وأنظمة طبية ومخازن ذكية للمؤسسات الطموحة في العالم العربي.</p>
+      <div class="social">
+        <a href="#"><i class="bi bi-whatsapp"></i></a>
+        <a href="#"><i class="bi bi-linkedin"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+    <div>
+      <h3>الأنظمة</h3>
+      <a href="#catalog">ون سوفت ERP</a><br><br>
+      <a href="#catalog">سمارت ميدكال</a><br><br>
+      <a href="#catalog">المخازن والضريبة</a><br><br>
+      <a href="#catalog">ميكروتك شيلد</a>
+    </div>
+    <div>
+      <h3>روابط سريعة</h3>
+      <a href="#hero">الرئيسية</a><br><br>
+      <a href="#about">عن المكتب</a><br><br>
+      <a href="#quiz">التشخيص الذكي</a><br><br>
+      <a href="#rfq">طلب مشروع</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 المستقبل ون سوفت — جميع الحقوق محفوظة.
+  </div>
+</footer>
+
+<script>
+// ============ NAVBAR SCROLL ============
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ============ MOBILE TOGGLE ============
+document.getElementById('mobileToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// ============ ANIMATE ON SCROLL ============
+const animateEls = document.querySelectorAll('.animate-on-scroll');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+}, { threshold: 0.1 });
+animateEls.forEach(el => observer.observe(el));
+
+// ============ HERO COUNTERS ============
+function animateCounter(el, target, suffix) {
+  let current = 0; const step = Math.ceil(target / 60); const interval = setInterval(() => {
+    current += step; if (current >= target) { current = target; clearInterval(interval); }
+    el.textContent = current + (suffix || '');
+  }, 25);
+}
+setTimeout(() => {
+  animateCounter(document.getElementById('clientsCount'), 340);
+  animateCounter(document.getElementById('systemsCount'), 12);
+}, 500);
+
+// ============ DYNAMIC SYSTEMS DATA (from /الوثائق) ============
+const systemsData = [
+  {
+    id: 'erp',
+    category: 'erp',
+    icon: 'bi-hdd-network',
+    title: 'ون سوفت ERP',
+    subtitle: 'التكامل والربط الذكي',
+    description: 'منظومة برمجية متكاملة لتخطيط موارد المنشآت بمختلف أنشطتها — ربط فروع متعددة، مزامنة لحظية، وتطبيق أندرويد مخصص.',
+    kpis: [
+      { icon: 'bi-link-45deg', text: 'ربط فوري' },
+      { icon: 'bi-phone', text: 'تطبيق أندرويد' },
+      { icon: 'bi-lock-fill', text: 'مشفر' },
+    ],
+    features: [
+      'ربط فروع متعددة', 'مزامنة لحظية', 'تطبيق أندرويد',
+      'معالجة Local-first', 'تشفير محاسبي كامل', 'تقارير ذكية',
+    ],
+    modules: [
+      'النسخة العامة', 'إدارة الصيدليات', 'شركات تجارة الأدوية',
+      'المستشفيات والمراكز الطبية', 'المختبرات الطبية', 'العيادات العامة',
+      'عيادات الأسنان', 'شؤون الموظفين HR', 'المطاعم والكافيهات',
+      'إدارة الزكاة', 'مكاتب الخدمات', 'المخابز والحلويات',
+    ],
+    details: 'نظام ERP شامل يدعم 12 قطاعاً مختلفاً. يتميز بالمزامنة اللحظية بين الفروع، وتطبيق أندرويد للإدارة عن بُعد، ونظام تشفير محاسبي متكامل لحماية البيانات المالية.',
+    value: 'القضاء على الفوضى الإدارية وشتات البيانات بين الفروع — لوحة تحكم موحدة تمنحك "الحقيقة الكاملة" عن منشأتك في أي وقت ومن أي مكان.'
+  },
+  {
+    id: 'medical',
+    category: 'medical',
+    icon: 'bi-heart-pulse',
+    title: 'سمارت ميدكال الطبي',
+    subtitle: 'النظام الطبي الذكي',
+    description: 'منظومة طبية متخصصة ومفصلة بنظام طبقي ذكي (نسخ A و B) لتناسب كافة مستويات الرعاية الصحية بمرونة عالية.',
+    kpis: [
+      { icon: 'bi-file-medical', text: 'ملف موحد' },
+      { icon: 'bi-layers', text: 'نسخ A/B' },
+      { icon: 'bi-shield-check', text: 'تأمين' },
+    ],
+    features: [
+      'ملف مريض موحد', 'نسخ متدرجة A/B', 'ربط التأمين',
+      'وصفات إلكترونية', 'أرشفة نتائج', 'تقارير إدارية',
+    ],
+    modules: [
+      'المستشفيات العامة (كاملة)', 'مركز طبي (A)', 'مركز طبي (B)',
+      'عيادة أسنان (A)', 'عيادة أسنان (B)', 'العيادات التخصصية (A)',
+      'العيادات التخصصية (B)', 'نسخة الصيدلية', 'المختبرات (A)',
+      'المختبرات (B)', 'نسخة الأشعة',
+    ],
+    details: '11 نسخة متدرجة تغطي جميع مستويات الرعاية الصحية — من المستشفيات الكبرى إلى العيادات الفردية. يتميز بالتخصيص المتناهي (Micro-Customization) الذي يعكس احترامنا لقدرات العميل المالية.',
+    value: 'سد الفجوات الإدارية، منع هدر الأدوية والمستلزمات، وتقديم تجربة علاجية سريعة ومحترفة ترفع من سمعة المنشأة الطبية.'
+  },
+  {
+    id: 'inventory',
+    category: 'inventory',
+    icon: 'bi-building',
+    title: 'المخازن والضريبة المضافة',
+    subtitle: 'الامتثال والاتساع الإقليمي',
+    description: 'حزمة برمجية مالية ومخزنية صارمة متوافقة كلياً مع قوانين الضريبة المضافة ومعايير السوق الخليجي.',
+    kpis: [
+      { icon: 'bi-check-all', text: 'امتثال كلي' },
+      { icon: 'bi-receipt', text: 'فاتورة إلكترونية' },
+      { icon: 'bi-qr-code', text: 'QR Code' },
+    ],
+    features: [
+      'فاتورة إلكترونية معتمدة', 'QR Code للتحقق', 'إهلاك الأصول',
+      'تقارير ضريبية جاهزة', 'إدارة المخزون', '多点 (POS)',
+    ],
+    modules: [
+      'نظام محاسبي مخزني (تجاري)', 'نظام المطاعم الضريبي', 'نظام الأصول الثابتة',
+    ],
+    details: 'بوابتك المثالية للتوسع الإقليمي — امتثال كامل لهيئة الزكاة والضريبة مع فاتورة إلكترونية فورية مدعومة برمز QR للتحقق الفوري.',
+    value: 'شراء الأمان القانوني والمالي، تجنب الغرامات القاسية، وجاهزية المنشأة الفورية للتوسع الإقليمي ودخول أسواق جديدة بثقة.'
+  },
+  {
+    id: 'electricity',
+    category: 'other',
+    icon: 'bi-lightning',
+    title: 'محطات الكهرباء التجارية',
+    subtitle: 'نظام خدمي تخصصي',
+    description: 'نظام نادر متخصص لإدارة محطات توليد وتوزيع الكهرباء الخاصة والتجارية — تنظيم الاشتراكات وقراءة العدادات.',
+    kpis: [
+      { icon: 'bi-file-text', text: 'اشتراكات' },
+      { icon: 'bi-speedometer2', text: 'عدادات' },
+      { icon: 'bi-cash-coin', text: 'تحصيل' },
+    ],
+    features: [
+      'إدارة الاشتراكات', 'قراءة العدادات', 'إصدار الفواتير الدورية',
+      'متابعة المديونيات', 'تقارير التحصيل', 'تنبيهات الاستحقاق',
+    ],
+    modules: [
+      'إدارة المشتركين', 'قراءات العدادات', 'الفواتير الدورية',
+      'المديونيات والتحصيل', 'تقارير التشغيل',
+    ],
+    details: 'نظام خدمي تخصصي نادر في السوق، مصمم خصيصاً لإدارة محطات توليد وتوزيع الكهرباء الخاصة والتجارية.',
+    value: 'أتمتة كاملة لدورة حياة المشترك — من التسجيل والقراءة إلى الفوترة والتحصيل — بدون هدر أو أخطاء بشرية.'
+  },
+  {
+    id: 'bakery',
+    category: 'erp',
+    icon: 'bi-shop',
+    title: 'إدارة المخابز والحلويات',
+    subtitle: 'نظام متكامل للإنتاج',
+    description: 'حل متكامل لإدارة جميع عمليات المخبز — مبيعات، إنتاج، مخزون، موظفين، وتقارير مالية من واجهة بسيطة.',
+    kpis: [
+      { icon: 'bi-gear', text: 'إنتاج' },
+      { icon: 'bi-box-seam', text: 'مخزون' },
+      { icon: 'bi-phone', text: 'تطبيق' },
+    ],
+    features: [
+      'إدارة المبيعات', 'متابعة المخزون', 'تنظيم الإنتاج',
+      'إدارة الموظفين', 'تقارير دقيقة', 'تطبيق هاتف',
+    ],
+    modules: [
+      'المبيعات والفواتير', 'المواد الخام', 'جداول الإنتاج',
+      'حضور الموظفين', 'تقارير الأرباح', 'التطبيق المرتبط',
+    ],
+    details: 'يتيح لك التحكم الكامل في جميع جوانب عمل المخبز — تسجيل المبيعات بدقة، متابعة المواد الخام، تنظيم جداول الإنتاج، ومراقبة الموظفين.',
+    value: 'تحسين الأداء اليومي وتقليل الأخطاء مع متابعة لحظية من أي مكان عبر تطبيق الهاتف الذكي.'
+  },
+  {
+    id: 'restaurant',
+    category: 'erp',
+    icon: 'bi-cup-hot',
+    title: 'إدارة المطاعم والكافيهات',
+    subtitle: 'نظام نقاط بيع ذكي',
+    description: 'نظام احترافي لإدارة المطاعم والكافيهات — من تسجيل الطلبات إلى المطبخ وصولاً للتقارير المالية الدقيقة.',
+    kpis: [
+      { icon: 'bi-printer', text: 'POS سريع' },
+      { icon: 'bi-map', text: 'خريطة طاولات' },
+      { icon: 'bi-truck', text: 'دليفري' },
+    ],
+    features: [
+      'شاشة POS سريعة', 'خريطة طاولات تفاعلية', 'دعم الدليفري والتيك أوي',
+      'إرسال للمطبخ', 'صلاحيات متعددة', 'تطبيق متابعة',
+    ],
+    modules: [
+      'نقطة البيع', 'إدارة الطاولات', 'المطبخ والتوصيل',
+      'الموظفين والصلاحيات', 'تقارير المبيعات', 'التطبيق الذكي',
+    ],
+    details: 'إدارة مطعمك بسلاسة — شاشة نقاط بيع سريعة، خريطة طاولات تفاعلية، دعم الدليفري، وإرسال الطلبات مباشرة للمطبخ.',
+    value: 'تسريع دورة الطلب وتقليل الأخطاء التشغيلية مع رؤية شاملة للأرباح والتكاليف في الوقت الفعلي.'
+  },
+  {
+    id: 'pharmacy',
+    category: 'erp',
+    icon: 'bi-capsule',
+    title: 'إدارة الصيدليات',
+    subtitle: 'نظام صيدلة ذكي',
+    description: 'حل برمجي متكامل لتنظيم أعمال الصيدليات — إدارة المخزون الدوائي، صرف الوصفات، ونقطة بيع متكاملة.',
+    kpis: [
+      { icon: 'bi-box-seam', text: 'مخزون دوائي' },
+      { icon: 'bi-file-text', text: 'وصفات' },
+      { icon: 'bi-shield-check', text: 'أمان' },
+    ],
+    features: [
+      'إدارة المخزون', 'تتبع الباتش والتاريخ', 'صرف الوصفات',
+      'نقطة بيع (POS)', 'إدارة الموردين', 'تقارير وتحليلات',
+    ],
+    modules: [
+      'المخزون الدوائي', 'الوصفات الطبية', 'نقطة البيع',
+      'الموردين والمشتريات', 'التقارير المالية', 'الأمان والصلاحيات',
+    ],
+    details: 'نظام متكامل يجمع بين إدارة المخزون، صرف الأدوية، البيع المباشر، متابعة الموردين، وإصدار التقارير في منصة واحدة.',
+    value: 'تقليل الأخطاء الدوائية، تحسين إدارة المخزون، تجنب خسائر الأدوية منتهية الصلاحية، وتسريع عملية البيع.'
+  },
+  {
+    id: 'future',
+    category: 'future',
+    icon: 'bi-stars',
+    title: 'الأنظمة المستقبلية',
+    subtitle: 'جاهزة وقيد التفعيل',
+    description: 'أنظمة مبتكرة جاهزة ومكتملة الأدوات — تمثل عمق المكتب الابتكاري وتنتظر دخول خط الإنتاج قريباً.',
+    kpis: [
+      { icon: 'bi-clock', text: 'قريباً' },
+      { icon: 'bi-rocket', text: 'جاهزة' },
+      { icon: 'bi-gem', text: 'مبتكرة' },
+    ],
+    features: [
+      'أتمتة التعليم', 'واتساب ذكي', 'إدارة عقارات',
+      'نظام مخزني مستقل', 'جاهزة للتفعيل', 'دعم فني كامل',
+    ],
+    modules: [
+      'نظامين مدرسيين', 'الواتساب الذكي', 'إدارة العقارات',
+      'النظام المخزني المستقل',
+    ],
+    details: 'أنظمة جاهزة ومكتملة تمثل عمق المكتب الابتكاري — الأنظمة المدرسية، نظام الواتساب الذكي، إدارة العقارات، والنظام المخزني المستقل.',
+    value: 'شريك تكنولوجي مستدام ينمو مع نمو السوق — أنظمة استباقية تجعلك مستعداً للغد قبل أن يصل إليه.'
+  },
+];
+
+// ============ DYNAMIC CATALOG RENDER ============
+const catalogGrid = document.getElementById('catalogGrid');
+const filtersContainer = document.querySelector('.catalog-filters');
+
+const categories = [
+  { value: 'all', label: 'الكل' },
+  { value: 'erp', label: 'ERP وإدارة المؤسسات' },
+  { value: 'medical', label: 'النظام الطبي' },
+  { value: 'inventory', label: 'مخازن وضريبة' },
+  { value: 'other', label: 'أنظمة تخصصية' },
+  { value: 'future', label: 'المستقبلية' },
+];
+
+function renderFilters() {
+  filtersContainer.innerHTML = categories.map((c, i) =>
+    `<button class="filter-btn${i === 0 ? ' active' : ''}" data-filter="${c.value}">${c.label}</button>`
+  ).join('');
+}
+
+function renderCards(filter) {
+  const filtered = filter === 'all' ? systemsData : systemsData.filter(s => s.category === filter);
+  if (filtered.length === 0) {
+    catalogGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:3rem;color:var(--color-text-muted);font-size:var(--font-body);">لا توجد أنظمة في هذا التصنيف</div>';
+    return;
+  }
+  catalogGrid.innerHTML = filtered.map(s => `
+    <div class="catalog-card animate-on-scroll" data-category="${s.category}">
+      <div class="card-img">
+        <i class="bi ${s.icon}"></i>
+        <div class="kpi-chips">
+          ${s.kpis.map(k => `<span class="kpi-chip"><i class="bi ${k.icon}"></i> ${k.text}</span>`).join('')}
+        </div>
+      </div>
+      <div class="card-body">
+        <h3>${s.title}</h3>
+        <div class="card-sub">${s.subtitle}</div>
+        <p>${s.description}</p>
+        <div class="feature-badges">
+          ${s.features.slice(0, 4).map(f => `<span class="feature-badge"><i class="bi bi-check-lg"></i> ${f}</span>`).join('')}
+        </div>
+        <div class="module-preview">
+          <div class="module-count">📦 ${s.modules.length} وحدة / نسخة</div>
+          <div class="module-tags">
+            ${s.modules.slice(0, 4).map(m => `<span class="module-tag">${m}</span>`).join('')}
+            ${s.modules.length > 4 ? `<span class="module-tag">+${s.modules.length - 4}</span>` : ''}
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="system.html?id=${s.id}" class="card-btn"><i class="bi bi-eye"></i> معاينة النظام</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // Re-run observer for newly added cards
+  document.querySelectorAll('.catalog-card.animate-on-scroll').forEach(el => observer.observe(el));
+}
+
+// Filter event delegation
+filtersContainer.addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  filtersContainer.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCards(btn.dataset.filter);
+});
+
+renderFilters();
+renderCards('all');
+
+// ============ DASHBOARD SIMULATOR ============
+const dashData = {
+  sales: {
+    metrics: [
+      { label: 'إجمالي المبيعات', value: '$1,284,500', cls: 'up', change: '+23% عن الربع الماضي' },
+      { label: 'صافي الأرباح', value: '$387,200', cls: 'up', change: '+18% عن الربع الماضي' },
+      { label: 'متوسط الصفقة', value: '$4,280', cls: 'up', change: '+7% عن الربع الماضي' },
+      { label: 'العمليات اليومية', value: '1,247', cls: 'up', change: '+12% عن الربع الماضي' },
+    ],
+    chart: [45, 62, 38, 75, 52, 88, 65, 42, 70, 55, 80, 90],
+    chartLabels: ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر']
+  },
+  branches: {
+    metrics: [
+      { label: 'الفروع النشطة', value: '12/12', cls: 'up', change: 'جميع الفروع متصلة' },
+      { label: 'حالة الشبكة', value: 'ممتازة', cls: 'up', change: 'زمن استجابة < 5ms' },
+      { label: 'التحديثات', value: 'لحظية', cls: 'up', change: 'تزامن كامل' },
+      { label: 'النسخ الاحتياطي', value: 'تلقائي', cls: 'up', change: 'آخر نسخ: قبل 3 دقائق' },
+    ],
+    chart: [80, 85, 90, 92, 95, 98, 99, 97, 96, 94, 97, 100],
+    chartLabels: ['فرع 1','فرع 2','فرع 3','فرع 4','فرع 5','فرع 6','فرع 7','فرع 8','فرع 9','فرع 10','فرع 11','فرع 12']
+  },
+  network: {
+    metrics: [
+      { label: 'التهديدات المحجوبة', value: '2,847', cls: 'up', change: '+45% هذا الشهر' },
+      { label: 'محاولات الاختراق', value: '341', cls: 'down', change: 'تم اعتراض الكل' },
+      { label: 'حالة الجدار الناري', value: 'نشط', cls: 'up', change: 'تشغيل 99.99%' },
+      { label: 'الأنظمة الآمنة', value: '100%', cls: 'up', change: 'جميع الأنظمة محصنة' },
+    ],
+    chart: [15, 28, 22, 42, 35, 58, 45, 62, 55, 70, 65, 85],
+    chartLabels: ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر']
+  }
+};
+
+const dashBody = document.getElementById('dashBody');
+
+function renderDash(tab) {
+  const data = dashData[tab];
+  const maxChart = Math.max(...data.chart);
+  let html = '<div class="dash-metrics">';
+  data.metrics.forEach(m => {
+    html += `<div class="dash-metric"><div class="label">${m.label}</div><div class="value ${m.cls}">${m.value}</div><div class="change">${m.change}</div></div>`;
+  });
+  html += '</div><div class="dash-chart">';
+  data.chart.forEach((v, i) => {
+    const h = (v / maxChart) * 140;
+    html += `<div style="display:flex;flex-direction:column;align-items:center;"><div class="dash-bar" style="height:${h}px;"></div><div class="dash-bar-label">${data.chartLabels[i]}</div></div>`;
+  });
+  html += '</div>';
+
+  if (tab === 'network') {
+    html += '<div class="dash-pulse"><div class="pulse-dot"></div><div class="info">⚠️ <strong>تنبيه أمني:</strong> تم اكتشاف محاولة اختراق من IP 45.33.xx.xxx — تم الحظر التلقائي بواسطة <strong>ميكروتك شيلد</strong></div></div>';
+  }
+
+  dashBody.innerHTML = html;
+}
+
+document.querySelectorAll('.dash-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.dash-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderDash(tab.dataset.dash);
+  });
+});
+
+renderDash('sales');
+
+// ============ QUIZ ============
+let quizStep = 1;
+const quizSteps = document.querySelectorAll('.quiz-step');
+
+document.querySelectorAll('.quiz-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    const parent = opt.closest('.quiz-step');
+    parent.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    setTimeout(() => {
+      quizStep++;
+      if (quizStep === 4) {
+        const answers = [];
+        document.querySelectorAll('.quiz-option.selected').forEach(o => answers.push(o.dataset.answer));
+        let resultText = 'نظام ون سوفت ERP هو الخيار الأمثل لمؤسستك — يجمع بين المرونة والقوة والامتثال الكامل.';
+        if (answers.includes('medical')) resultText = 'سمارت ميدكال الطبي هو الأنسب لك — نظام متكامل لإدارة المنشآت الطبية بملف مريض موحد وربط التأمين.';
+        else if (answers.includes('network')) resultText = 'ميكروتك شيلد وحلول ربط الفروع هي ما تحتاجه — بنية تحتية آمنة وربط لحظي بلا انقطاع.';
+        else if (answers.includes('finance') && answers.includes('control')) resultText = 'ون سوفت ERP مع وحدة المخازن والضريبة — امتثال كامل مع رقابة مالية مشددة.';
+        document.getElementById('quizResultText').textContent = resultText;
+      }
+      quizSteps.forEach(s => s.classList.remove('active'));
+      quizSteps.forEach(s => {
+        if (parseInt(s.dataset.step) === quizStep || (quizStep === 4 && s.dataset.step === 'result')) {
+          s.classList.add('active');
+        }
+      });
+    }, 400);
+  });
+});
+
+// ============ COST ESTIMATOR ============
+const branchesRange = document.getElementById('branchesRange');
+const usersRange = document.getElementById('usersRange');
+const branchesVal = document.getElementById('branchesVal');
+const usersVal = document.getElementById('usersVal');
+const activityType = document.getElementById('activityType');
+const priceRange = document.getElementById('priceRange');
+
+function calcPrice() {
+  const branches = parseInt(branchesRange.value);
+  const users = parseInt(usersRange.value);
+  const activity = activityType.value;
+  const basePrices = { erp: 3000, medical: 4000, inventory: 2500, hybrid: 5500 };
+  const base = basePrices[activity] || 3000;
+  const minPrice = base + branches * 800 + users * 200;
+  const maxPrice = base + branches * 1500 + users * 400;
+  priceRange.textContent = `$${minPrice.toLocaleString()} – $${maxPrice.toLocaleString()}`;
+  if (typeof updateRfqEstimator === 'function') updateRfqEstimator();
+}
+
+branchesRange.addEventListener('input', () => { branchesVal.textContent = branchesRange.value; calcPrice(); });
+usersRange.addEventListener('input', () => { usersVal.textContent = usersRange.value; calcPrice(); });
+activityType.addEventListener('change', calcPrice);
+calcPrice();
+
+// ============ RFQ WIZARD ============
+let rfqPage = 1;
+
+function updateRfqEstimator() {
+  document.getElementById('rfqBranchesDisplay').textContent = document.getElementById('rfqBranches').value;
+  document.getElementById('rfqUsersDisplay').textContent = document.getElementById('rfqUsers').value;
+  document.getElementById('rfqBranches').value = branchesRange.value;
+  document.getElementById('rfqUsers').value = usersRange.value;
+  document.getElementById('rfqBranchesDisplay').textContent = branchesRange.value;
+  document.getElementById('rfqUsersDisplay').textContent = usersRange.value;
+}
+
+document.getElementById('rfqBranches').addEventListener('input', function() {
+  document.getElementById('rfqBranchesDisplay').textContent = this.value;
+});
+document.getElementById('rfqUsers').addEventListener('input', function() {
+  document.getElementById('rfqUsersDisplay').textContent = this.value;
+});
+
+document.querySelectorAll('.rfq-next').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const next = parseInt(this.dataset.next);
+    if (next) {
+      document.querySelectorAll('.rfq-page').forEach(p => p.classList.remove('active'));
+      document.querySelector(`.rfq-page[data-page="${next}"]`).classList.add('active');
+      document.querySelectorAll('.rfq-step-indicator').forEach(i => {
+        const s = parseInt(i.dataset.rfqStep);
+        i.classList.remove('active', 'done');
+        if (s < next) i.classList.add('done');
+        else if (s === next) i.classList.add('active');
+      });
+      rfqPage = next;
+    }
+  });
+});
+
+document.querySelectorAll('.btn-prev').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const prev = parseInt(this.dataset.prev);
+    if (prev) {
+      document.querySelectorAll('.rfq-page').forEach(p => p.classList.remove('active'));
+      document.querySelector(`.rfq-page[data-page="${prev}"]`).classList.add('active');
+      document.querySelectorAll('.rfq-step-indicator').forEach(i => {
+        const s = parseInt(i.dataset.rfqStep);
+        i.classList.remove('active', 'done');
+        if (s < prev) i.classList.add('done');
+        else if (s === prev) i.classList.add('active');
+      });
+      rfqPage = prev;
+    }
+  });
+});
+
+document.getElementById('rfqSubmit').addEventListener('click', function() {
+  const company = document.getElementById('rfqCompany').value.trim();
+  const name = document.getElementById('rfqName').value.trim();
+  const phone = document.getElementById('rfqPhone').value.trim();
+  const email = document.getElementById('rfqEmail').value.trim();
+
+  if (!company || !name || !phone || !email) {
+    alert('يرجى تعبئة جميع الحقول المطلوبة (*)');
+    return;
+  }
+
+  const indicator = document.querySelector('.rfq-step-indicator[data-rfq-step="4"]');
+  indicator.classList.remove('active');
+  indicator.classList.add('done');
+
+  const form = document.getElementById('rfqForm');
+  form.innerHTML = `
+    <div style="text-align:center;padding:3rem 2rem;">
+      <i class="bi bi-check-circle-fill" style="font-size:4rem;color:var(--color-success-500);margin-bottom:1.5rem;"></i>
+      <h3 style="font-size:1.5rem;color:var(--color-text-main);margin-bottom:0.8rem;">تم استلام طلبك بنجاح!</h3>
+      <p style="color:var(--color-text-muted);font-size:1.05rem;">شكراً لتواصلك مع المستقبل ون سوفت.</p>
+      <p style="color:var(--color-text-muted);">سيقوم فريقنا الهندسي بمراجعة طلبك والاتصال بك خلال 24 ساعة عمل.</p>
+      <div style="margin-top:2rem;padding:1rem;background:var(--color-primary-50);border-radius:12px;border:1px solid var(--color-primary-200);display:inline-block;">
+        <i class="bi bi-file-earmark-text" style="color:var(--color-primary-500);margin-left:8px;"></i>
+        <span style="color:var(--color-primary-700);font-weight:600;">رقم الطلب: #${Math.random().toString(36).substring(2,8).toUpperCase()}</span>
+      </div>
+    </div>
+  `;
+});
+
+// ============ DROP ZONE ============
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+const fileStatus = document.getElementById('fileStatus');
+
+dropZone.addEventListener('click', () => fileInput.click());
+dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', (e) => { e.preventDefault(); dropZone.classList.remove('dragover'); if (e.dataTransfer.files.length) { handleFile(e.dataTransfer.files[0]); } });
+fileInput.addEventListener('change', () => { if (fileInput.files.length) handleFile(fileInput.files[0]); });
+
+function handleFile(file) {
+  if (file.type !== 'application/pdf') { fileStatus.innerHTML = '<i class="bi bi-x" style="color:var(--color-error-500);"></i> يرجى رفع ملف PDF فقط'; return; }
+  fileStatus.innerHTML = `<i class="bi bi-check-circle-fill"></i> ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+}
+
+// ============ ESTIMATOR TOGGLE ============
+function toggleEstimator() {
+  const collapse = document.getElementById('estimatorCollapse');
+  const icon = document.getElementById('estimatorToggleIcon');
+  collapse.classList.toggle('open');
+  icon.classList.toggle('open');
+}
+
+// ============ RFQ MODAL ============
+const rfqModalOverlay = document.getElementById('rfqModalOverlay');
+document.getElementById('openRfqModal').addEventListener('click', () => {
+  rfqModalOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  rfqPage = 1;
+  document.querySelectorAll('.rfq-page').forEach(p => p.classList.remove('active'));
+  document.querySelector('.rfq-page[data-page="1"]').classList.add('active');
+  document.querySelectorAll('.rfq-step-indicator').forEach(i => {
+    i.classList.remove('active', 'done');
+    if (parseInt(i.dataset.rfqStep) === 1) i.classList.add('active');
+  });
+});
+document.getElementById('rfqModalClose').addEventListener('click', () => {
+  rfqModalOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+});
+rfqModalOverlay.addEventListener('click', (e) => {
+  if (e.target === rfqModalOverlay) { rfqModalOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+});
+
+// ============ SMOOTH SCROLL COMPENSATION ============
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+</body>
+</html>

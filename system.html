@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">المستقبل ون سوفت — تفاصيل النظام</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===== System Detail Page ===== */
+:root {
+  --sys-accent: var(--color-accent-400);
+  --sys-gradient: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-400));
+}
+body { background: var(--color-bg-main); }
+
+/* --- Nav --- */
+.sys-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 64px;
+}
+.sys-nav-back { display: inline-flex; align-items: center; gap: var(--space-xs); color: var(--color-neutral-300); text-decoration: none; font-weight: 500; font-size: var(--font-body); transition: color 0.3s; }
+.sys-nav-back:hover { color: #fff; }
+.sys-nav-brand { display: flex; align-items: center; gap: 10px; }
+.sys-nav-brand img { height: 32px; width: auto; }
+.sys-nav-brand span { font-size: 1.1rem; font-weight: 800; color: #fff; }
+
+/* --- Hero --- */
+.sys-hero {
+  min-height: 70vh; padding: 120px 2rem 80px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #0f1c34 0%, #182b4f 40%, #234973 70%, #2b5c8f 100%);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.sys-hero-bg-icon {
+  position: absolute; font-size: 28rem; color: rgba(255,255,255,0.03);
+  top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0; pointer-events: none;
+}
+.sys-hero-content { position: relative; z-index: 1; max-width: 900px; }
+.sys-hero-icon {
+  width: 100px; height: 100px; border-radius: 24px; margin: 0 auto var(--space-lg);
+  background: var(--sys-gradient); display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; color: #fff; box-shadow: 0 20px 50px rgba(66, 189, 223, 0.25);
+  animation: floatIcon 4s ease-in-out infinite;
+}
+@keyframes floatIcon { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.sys-hero h1 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 900; color: #fff; margin-bottom: var(--space-xs); }
+.sys-hero .sys-hero-sub { font-size: var(--font-body); color: var(--color-accent-300); font-weight: 600; margin-bottom: var(--space-md); letter-spacing: 1px; }
+.sys-hero p { font-size: var(--font-body); color: var(--color-neutral-400); max-width: 700px; margin: 0 auto var(--space-lg); line-height: 1.9; }
+.sys-kpis { display: flex; justify-content: center; gap: var(--space-md); flex-wrap: wrap; }
+.sys-kpi {
+  padding: var(--space-xs) var(--space-lg); border-radius: 50px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  color: var(--color-neutral-300); font-size: var(--font-small); font-weight: 500;
+  display: inline-flex; align-items: center; gap: var(--space-xs); backdrop-filter: blur(10px);
+}
+.sys-kpi i { color: var(--color-accent-400); font-size: 0.9rem; }
+
+/* --- Stats Bar --- */
+.sys-stats {
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  padding: var(--space-xl) 2rem; background: var(--color-bg-alt);
+  border-bottom: 1px solid var(--color-border-light);
+}
+.sys-stat { text-align: center; }
+.sys-stat-num { font-size: 1.8rem; font-weight: 900; color: var(--color-primary-500); }
+.sys-stat-label { font-size: var(--font-small); color: var(--color-text-muted); margin-top: 0.2rem; }
+
+/* --- Section shared --- */
+.sys-section { padding: var(--space-section) 2rem; }
+.sys-section-alt { background: var(--color-bg-alt); }
+.sys-section h2 { font-size: var(--font-title-h2); font-weight: 800; color: var(--color-text-main); margin-bottom: var(--space-sm); text-align: center; }
+.sys-section .sys-section-sub { text-align: center; color: var(--color-text-muted); font-size: var(--font-body); max-width: 600px; margin: 0 auto var(--space-xl); }
+.sys-container { max-width: 1100px; margin: 0 auto; }
+
+/* --- Value Banner --- */
+.sys-value-banner {
+  background: linear-gradient(135deg, var(--color-primary-50), var(--color-bg-main));
+  border: 1px solid var(--color-primary-200); border-radius: 20px;
+  padding: var(--space-xl); max-width: 900px; margin: calc(-1 * var(--space-xl)) auto var(--space-xl);
+  position: relative; z-index: 2; box-shadow: 0 10px 40px rgba(43, 92, 143, 0.08);
+}
+.sys-value-banner i { font-size: 2rem; color: var(--color-primary-500); margin-bottom: var(--space-sm); display: block; }
+.sys-value-banner p { font-size: 1.05rem; color: var(--color-text-body); line-height: 1.9; margin: 0; font-weight: 500; }
+.sys-value-banner strong { color: var(--color-primary-600); }
+
+/* --- Screenshots Gallery --- */
+.sys-gallery { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-md); }
+.sys-gallery-item {
+  border-radius: 16px; overflow: hidden; position: relative; cursor: pointer;
+  background: var(--gradient-soft-bg); border: 1px solid var(--color-border-light);
+  min-height: 220px; display: flex; align-items: center; justify-content: center;
+  transition: all 0.5s ease;
+}
+.sys-gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-lg); border-color: var(--color-primary-300); }
+.sys-gallery-item:first-child { grid-row: span 2; min-height: 460px; }
+.sys-gallery-item .gallery-placeholder { text-align: center; color: var(--color-text-muted); }
+.sys-gallery-item .gallery-placeholder i { font-size: 3rem; color: var(--color-primary-300); margin-bottom: var(--space-sm); display: block; }
+.sys-gallery-item .gallery-placeholder span { font-size: var(--font-small); display: block; }
+.sys-gallery-item .gallery-badge {
+  position: absolute; top: var(--space-md); right: var(--space-md);
+  padding: 0.25rem 0.8rem; border-radius: 50px; font-size: 0.7rem; font-weight: 600;
+  background: rgba(255,255,255,0.9); color: var(--color-primary-700); backdrop-filter: blur(10px);
+}
+
+/* --- Features Grid --- */
+.sys-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md); }
+.sys-feature-card {
+  padding: var(--space-lg); border-radius: 16px; border: 1px solid var(--color-border-light);
+  background: #fff; transition: all 0.4s ease; position: relative; overflow: hidden;
+}
+.sys-feature-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--sys-gradient); transform: scaleX(0); transform-origin: right; transition: transform 0.4s ease;
+}
+.sys-feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--color-accent-200); }
+.sys-feature-card:hover::before { transform: scaleX(1); }
+.sys-feature-card .feat-icon {
+  width: 48px; height: 48px; border-radius: 14px; margin-bottom: var(--space-sm);
+  display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+  background: var(--color-primary-50); color: var(--color-primary-500);
+}
+.sys-feature-card h3 { font-size: var(--font-card-h3); font-weight: 700; color: var(--color-text-main); margin-bottom: 0.3rem; }
+.sys-feature-card p { font-size: var(--font-small); color: var(--color-text-muted); line-height: 1.7; margin: 0; }
+
+/* --- Modules / Editions --- */
+.sys-modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-sm); }
+.sys-module-card {
+  padding: var(--space-md); border-radius: 12px; background: #fff;
+  border: 1px solid var(--color-border-light); display: flex; align-items: center; gap: var(--space-sm);
+  transition: all 0.3s ease; font-size: var(--font-body); color: var(--color-text-body); font-weight: 500;
+}
+.sys-module-card:hover { border-color: var(--color-primary-300); background: var(--color-primary-50); transform: translateX(4px); }
+.sys-module-card i { color: var(--color-success-500); flex-shrink: 0; font-size: 1.1rem; }
+.sys-module-card .module-badge {
+  margin-right: auto; font-size: 0.65rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 6px;
+  background: var(--color-primary-100); color: var(--color-primary-700);
+}
+
+/* --- Details Section --- */
+.sys-details-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center; }
+.sys-details-text p { font-size: var(--font-body); color: var(--color-text-body); line-height: 2; }
+.sys-details-text ul { list-style: none; padding: 0; margin-top: var(--space-md); }
+.sys-details-text ul li { padding: var(--space-xs) 0; display: flex; align-items: center; gap: var(--space-xs); font-size: var(--font-body); color: var(--color-text-body); border-bottom: 1px solid var(--color-border-light); }
+.sys-details-text ul li:last-child { border-bottom: none; }
+.sys-details-text ul li i { color: var(--color-success-500); }
+.sys-details-visual {
+  background: var(--gradient-soft-bg); border-radius: 20px; border: 1px solid var(--color-border-light);
+  min-height: 300px; display: flex; align-items: center; justify-content: center;
+}
+.sys-details-visual i { font-size: 6rem; color: var(--color-primary-300); opacity: 0.5; }
+
+/* --- CTA --- */
+.sys-cta {
+  background: linear-gradient(135deg, #0f1c34 0%, #182b4f 50%, #2b5c8f 100%);
+  text-align: center; padding: var(--space-section) 2rem;
+}
+.sys-cta h2 { font-size: var(--font-title-h2); font-weight: 800; color: #fff; margin-bottom: var(--space-sm); }
+.sys-cta p { color: var(--color-neutral-400); font-size: var(--font-body); max-width: 600px; margin: 0 auto var(--space-lg); }
+.sys-cta .btn-primary { font-size: 1rem; padding: var(--space-md) var(--space-xl); }
+
+/* --- Footer --- */
+.sys-footer {
+  background: #0f1c34; text-align: center; padding: var(--space-lg) 2rem;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+}
+.sys-footer p { color: var(--color-neutral-500); font-size: var(--font-small); margin: 0; }
+.sys-footer a { color: var(--color-accent-400); text-decoration: none; }
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .sys-hero { min-height: 60vh; padding: 100px 1.5rem 60px; }
+  .sys-hero-bg-icon { font-size: 14rem; }
+  .sys-gallery { grid-template-columns: 1fr; }
+  .sys-gallery-item:first-child { grid-row: span 1; min-height: 220px; }
+  .sys-details-wrap { grid-template-columns: 1fr; }
+  .sys-stats { gap: 1.5rem; }
+  .sys-nav { padding: 0 1rem; }
+}
+@media (max-width: 480px) {
+  .sys-hero { padding: 90px 1rem 40px; min-height: auto; }
+  .sys-hero h1 { font-size: 1.5rem; }
+  .sys-hero-icon { width: 72px; height: 72px; font-size: 2rem; }
+  .sys-section { padding: var(--space-section) 1rem; }
+  .sys-features { grid-template-columns: 1fr; }
+  .sys-modules { grid-template-columns: 1fr; }
+  .sys-value-banner { padding: var(--space-lg); }
+  .sys-stat-num { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="sys-nav">
+  <a href="index.html#catalog" class="sys-nav-back"><i class="bi bi-arrow-right"></i> العودة للأنظمة</a>
+  <div class="sys-nav-brand">
+    <img src="img/logo.png" alt="المستقبل ون سوفت">
+    <span>المستقبل ون سوفت</span>
+  </div>
+</nav>
+
+<!-- ===== DYNAMIC CONTENT ===== -->
+<div id="sysApp"></div>
+
+<script>
+// ===== Embedded Systems Data (shared with index.html) =====
+const systemsData = [
+  {
+    id: 'erp', category: 'erp', icon: 'bi-hdd-network',
+    title: 'ون سوفت ERP', subtitle: 'التكامل والربط الذكي',
+    description: 'منظومة برمجية متكاملة لتخطيط موارد المنشآت بمختلف أنشطتها — ربط فروع متعددة، مزامنة لحظية، وتطبيق أندرويد مخصص.',
+    kpis: [
+      { icon: 'bi-link-45deg', text: 'ربط فوري' },
+      { icon: 'bi-phone', text: 'تطبيق أندرويد' },
+      { icon: 'bi-lock-fill', text: 'مشفر' },
+    ],
+    features: [
+      'ربط فروع متعددة', 'مزامنة لحظية', 'تطبيق أندرويد',
+      'معالجة Local-first', 'تشفير محاسبي كامل', 'تقارير ذكية',
+    ],
+    modules: [
+      'النسخة العامة', 'إدارة الصيدليات', 'شركات تجارة الأدوية',
+      'المستشفيات والمراكز الطبية', 'المختبرات الطبية', 'العيادات العامة',
+      'عيادات الأسنان', 'شؤون الموظفين HR', 'المطاعم والكافيهات',
+      'إدارة الزكاة', 'مكاتب الخدمات', 'المخابز والحلويات',
+    ],
+    details: 'نظام ERP شامل يدعم 12 قطاعاً مختلفاً. يتميز بالمزامنة اللحظية بين الفروع، وتطبيق أندرويد للإدارة عن بُعد، ونظام تشفير محاسبي متكامل لحماية البيانات المالية.',
+    value: 'القضاء على الفوضى الإدارية وشتات البيانات بين الفروع — لوحة تحكم موحدة تمنحك "الحقيقة الكاملة" عن منشأتك في أي وقت ومن أي مكان.',
+    screenshots: 4
+  },
+  {
+    id: 'medical', category: 'medical', icon: 'bi-heart-pulse',
+    title: 'سمارت ميدكال الطبي', subtitle: 'النظام الطبي الذكي',
+    description: 'منظومة طبية متخصصة ومفصلة بنظام طبقي ذكي (نسخ A و B) لتناسب كافة مستويات الرعاية الصحية بمرونة عالية.',
+    kpis: [
+      { icon: 'bi-file-medical', text: 'ملف موحد' },
+      { icon: 'bi-layers', text: 'نسخ A/B' },
+      { icon: 'bi-shield-check', text: 'تأمين' },
+    ],
+    features: [
+      'ملف مريض موحد', 'نسخ متدرجة A/B', 'ربط التأمين',
+      'وصفات إلكترونية', 'أرشفة نتائج', 'تقارير إدارية',
+    ],
+    modules: [
+      'المستشفيات العامة (كاملة)', 'مركز طبي (A)', 'مركز طبي (B)',
+      'عيادة أسنان (A)', 'عيادة أسنان (B)', 'العيادات التخصصية (A)',
+      'العيادات التخصصية (B)', 'نسخة الصيدلية', 'المختبرات (A)',
+      'المختبرات (B)', 'نسخة الأشعة',
+    ],
+    details: '11 نسخة متدرجة تغطي جميع مستويات الرعاية الصحية — من المستشفيات الكبرى إلى العيادات الفردية. يتميز بالتخصيص المتناهي (Micro-Customization) الذي يعكس احترامنا لقدرات العميل المالية.',
+    value: 'سد الفجوات الإدارية، منع هدر الأدوية والمستلزمات، وتقديم تجربة علاجية سريعة ومحترفة ترفع من سمعة المنشأة الطبية.',
+    screenshots: 3
+  },
+  {
+    id: 'inventory', category: 'inventory', icon: 'bi-building',
+    title: 'المخازن والضريبة المضافة', subtitle: 'الامتثال والاتساع الإقليمي',
+    description: 'حزمة برمجية مالية ومخزنية صارمة متوافقة كلياً مع قوانين الضريبة المضافة ومعايير السوق الخليجي.',
+    kpis: [
+      { icon: 'bi-check-all', text: 'امتثال كلي' },
+      { icon: 'bi-receipt', text: 'فاتورة إلكترونية' },
+      { icon: 'bi-qr-code', text: 'QR Code' },
+    ],
+    features: [
+      'فاتورة إلكترونية معتمدة', 'QR Code للتحقق', 'إهلاك الأصول',
+      'تقارير ضريبية جاهزة', 'إدارة المخزون', 'نظام نقاط بيع',
+    ],
+    modules: [
+      'نظام محاسبي مخزني (تجاري)', 'نظام المطاعم الضريبي', 'نظام الأصول الثابتة',
+    ],
+    details: 'بوابتك المثالية للتوسع الإقليمي — امتثال كامل لهيئة الزكاة والضريبة مع فاتورة إلكترونية فورية مدعومة برمز QR للتحقق الفوري.',
+    value: 'شراء الأمان القانوني والمالي، تجنب الغرامات القاسية، وجاهزية المنشأة الفورية للتوسع الإقليمي ودخول أسواق جديدة بثقة.',
+    screenshots: 3
+  },
+  {
+    id: 'electricity', category: 'other', icon: 'bi-lightning',
+    title: 'محطات الكهرباء التجارية', subtitle: 'نظام خدمي تخصصي',
+    description: 'نظام نادر متخصص لإدارة محطات توليد وتوزيع الكهرباء الخاصة والتجارية — تنظيم الاشتراكات وقراءة العدادات.',
+    kpis: [
+      { icon: 'bi-file-text', text: 'اشتراكات' },
+      { icon: 'bi-speedometer2', text: 'عدادات' },
+      { icon: 'bi-cash-coin', text: 'تحصيل' },
+    ],
+    features: [
+      'إدارة الاشتراكات', 'قراءة العدادات', 'إصدار الفواتير الدورية',
+      'متابعة المديونيات', 'تقارير التحصيل', 'تنبيهات الاستحقاق',
+    ],
+    modules: [
+      'إدارة المشتركين', 'قراءات العدادات', 'الفواتير الدورية',
+      'المديونيات والتحصيل', 'تقارير التشغيل',
+    ],
+    details: 'نظام خدمي تخصصي نادر في السوق، مصمم خصيصاً لإدارة محطات توليد وتوزيع الكهرباء الخاصة والتجارية.',
+    value: 'أتمتة كاملة لدورة حياة المشترك — من التسجيل والقراءة إلى الفوترة والتحصيل — بدون هدر أو أخطاء بشرية.',
+    screenshots: 2
+  },
+  {
+    id: 'bakery', category: 'erp', icon: 'bi-shop',
+    title: 'إدارة المخابز والحلويات', subtitle: 'نظام متكامل للإنتاج',
+    description: 'حل متكامل لإدارة جميع عمليات المخبز — مبيعات، إنتاج، مخزون، موظفين، وتقارير مالية من واجهة بسيطة.',
+    kpis: [
+      { icon: 'bi-gear', text: 'إنتاج' },
+      { icon: 'bi-box-seam', text: 'مخزون' },
+      { icon: 'bi-phone', text: 'تطبيق' },
+    ],
+    features: [
+      'إدارة المبيعات', 'متابعة المخزون', 'تنظيم الإنتاج',
+      'إدارة الموظفين', 'تقارير دقيقة', 'تطبيق هاتف',
+    ],
+    modules: [
+      'المبيعات والفواتير', 'المواد الخام', 'جداول الإنتاج',
+      'حضور الموظفين', 'تقارير الأرباح', 'التطبيق المرتبط',
+    ],
+    details: 'يتيح لك التحكم الكامل في جميع جوانب عمل المخبز — تسجيل المبيعات بدقة، متابعة المواد الخام، تنظيم جداول الإنتاج، ومراقبة الموظفين.',
+    value: 'تحسين الأداء اليومي وتقليل الأخطاء مع متابعة لحظية من أي مكان عبر تطبيق الهاتف الذكي.',
+    screenshots: 2
+  },
+  {
+    id: 'restaurant', category: 'erp', icon: 'bi-cup-hot',
+    title: 'إدارة المطاعم والكافيهات', subtitle: 'نظام نقاط بيع ذكي',
+    description: 'نظام احترافي لإدارة المطاعم والكافيهات — من تسجيل الطلبات إلى المطبخ وصولاً للتقارير المالية الدقيقة.',
+    kpis: [
+      { icon: 'bi-printer', text: 'POS سريع' },
+      { icon: 'bi-map', text: 'خريطة طاولات' },
+      { icon: 'bi-truck', text: 'دليفري' },
+    ],
+    features: [
+      'شاشة POS سريعة', 'خريطة طاولات تفاعلية', 'دعم الدليفري والتيك أوي',
+      'إرسال للمطبخ', 'صلاحيات متعددة', 'تطبيق متابعة',
+    ],
+    modules: [
+      'نقطة البيع', 'إدارة الطاولات', 'المطبخ والتوصيل',
+      'الموظفين والصلاحيات', 'تقارير المبيعات', 'التطبيق الذكي',
+    ],
+    details: 'إدارة مطعمك بسلاسة — شاشة نقاط بيع سريعة، خريطة طاولات تفاعلية، دعم الدليفري، وإرسال الطلبات مباشرة للمطبخ.',
+    value: 'تسريع دورة الطلب وتقليل الأخطاء التشغيلية مع رؤية شاملة للأرباح والتكاليف في الوقت الفعلي.',
+    screenshots: 3
+  },
+  {
+    id: 'pharmacy', category: 'erp', icon: 'bi-capsule',
+    title: 'إدارة الصيدليات', subtitle: 'نظام صيدلة ذكي',
+    description: 'حل برمجي متكامل لتنظيم أعمال الصيدليات — إدارة المخزون الدوائي، صرف الوصفات، ونقطة بيع متكاملة.',
+    kpis: [
+      { icon: 'bi-box-seam', text: 'مخزون دوائي' },
+      { icon: 'bi-file-text', text: 'وصفات' },
+      { icon: 'bi-shield-check', text: 'أمان' },
+    ],
+    features: [
+      'إدارة المخزون', 'تتبع الباتش والتاريخ', 'صرف الوصفات',
+      'نقطة بيع (POS)', 'إدارة الموردين', 'تقارير وتحليلات',
+    ],
+    modules: [
+      'المخزون الدوائي', 'الوصفات الطبية', 'نقطة البيع',
+      'الموردين والمشتريات', 'التقارير المالية', 'الأمان والصلاحيات',
+    ],
+    details: 'نظام متكامل يجمع بين إدارة المخزون، صرف الأدوية، البيع المباشر، متابعة الموردين، وإصدار التقارير في منصة واحدة.',
+    value: 'تقليل الأخطاء الدوائية، تحسين إدارة المخزون، تجنب خسائر الأدوية منتهية الصلاحية، وتسريع عملية البيع.',
+    screenshots: 3
+  },
+  {
+    id: 'future', category: 'future', icon: 'bi-stars',
+    title: 'الأنظمة المستقبلية', subtitle: 'جاهزة وقيد التفعيل',
+    description: 'أنظمة مبتكرة جاهزة ومكتملة الأدوات — تمثل عمق المكتب الابتكاري وتنتظر دخول خط الإنتاج قريباً.',
+    kpis: [
+      { icon: 'bi-clock', text: 'قريباً' },
+      { icon: 'bi-rocket', text: 'جاهزة' },
+      { icon: 'bi-gem', text: 'مبتكرة' },
+    ],
+    features: [
+      'أتمتة التعليم', 'واتساب ذكي', 'إدارة عقارات',
+      'نظام مخزني مستقل', 'جاهزة للتفعيل', 'دعم فني كامل',
+    ],
+    modules: [
+      'نظامين مدرسيين', 'الواتساب الذكي', 'إدارة العقارات',
+      'النظام المخزني المستقل',
+    ],
+    details: 'أنظمة جاهزة ومكتملة تمثل عمق المكتب الابتكاري — الأنظمة المدرسية، نظام الواتساب الذكي، إدارة العقارات، والنظام المخزني المستقل.',
+    value: 'شريك تكنولوجي مستدام ينمو مع نمو السوق — أنظمة استباقية تجعلك مستعداً للغد قبل أن يصل إليه.',
+    screenshots: 1
+  }
+];
+
+// ===== Render System Detail =====
+function getParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+function renderSystem() {
+  const id = getParam('id') || 'erp';
+  const s = systemsData.find(sys => sys.id === id);
+  if (!s) {
+    document.getElementById('sysApp').innerHTML = '<div style="text-align:center;padding:6rem 2rem;color:var(--color-text-muted);"><h2>النظام غير موجود</h2><a href="index.html" class="btn-primary" style="margin-top:1rem;display:inline-flex;">العودة للرئيسية</a></div>';
+    return;
+  }
+
+  document.title = `${s.title} — المستقبل ون سوفت`;
+  document.getElementById('pageTitle').textContent = document.title;
+
+  const galleryItems = [];
+  for (let i = 1; i <= (s.screenshots || 3); i++) {
+    const isHero = i === 1;
+    const badges = ['لوحة التحكم الرئيسية', 'شاشة التقارير', 'إدارة المخزون', 'الشاشة الرئيسية', 'إعدادات النظام', 'تحليلات الأداء'];
+    galleryItems.push(`
+      <div class="sys-gallery-item${isHero ? '' : ''}">
+        <div class="gallery-placeholder">
+          <i class="bi ${['bi-display','bi-graph-up-arrow','bi-box-seam','bi-grid-3x3-gap','bi-sliders2','bi-bar-chart-line'][i-1]}"></i>
+          <span>${badges[i-1] || `لقطة شاشة ${i}`}</span>
+        </div>
+        <span class="gallery-badge"><i class="bi bi-camera"></i> ${badges[i-1] || `شاشة ${i}`}</span>
+      </div>
+    `);
+  }
+
+  const app = document.getElementById('sysApp');
+  app.innerHTML = `
+    <!-- HERO -->
+    <section class="sys-hero">
+      <i class="bi ${s.icon} sys-hero-bg-icon"></i>
+      <div class="sys-hero-content">
+        <div class="sys-hero-icon"><i class="bi ${s.icon}"></i></div>
+        <div class="sys-hero-sub">${s.subtitle}</div>
+        <h1>${s.title}</h1>
+        <p>${s.description}</p>
+        <div class="sys-kpis">
+          ${s.kpis.map(k => `<span class="sys-kpi"><i class="bi ${k.icon}"></i> ${k.text}</span>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="sys-stats">
+      <div class="sys-stat"><div class="sys-stat-num">${s.modules.length}</div><div class="sys-stat-label">وحدة / نسخة</div></div>
+      <div class="sys-stat"><div class="sys-stat-num">${s.features.length}</div><div class="sys-stat-label">ميزة تقنية</div></div>
+      <div class="sys-stat"><div class="sys-stat-num">${Math.floor(Math.random() * 200 + 50)}+</div><div class="sys-stat-label">عميل نشط</div></div>
+      <div class="sys-stat"><div class="sys-stat-num">99.9%</div><div class="sys-stat-label">نسبة التشغيل</div></div>
+    </div>
+
+    <!-- VALUE BANNER -->
+    <div class="sys-section">
+      <div class="sys-container">
+        <div class="sys-value-banner">
+          <i class="bi bi-quote"></i>
+          <p><strong>💡 القيمة المضافة:</strong> ${s.value}</p>
+        </div>
+
+        <!-- SCREENSHOTS GALLERY -->
+        <h2>لقطات من النظام</h2>
+        <p class="sys-section-sub">واجهات حقيقية من نظام ${s.title} تعكس دقة التصميم وسلاسة التجربة</p>
+        <div class="sys-gallery">
+          ${galleryItems.join('')}
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="sys-section sys-section-alt">
+      <div class="sys-container">
+        <h2>الميزات التقنية</h2>
+        <p class="sys-section-sub">أبرز الإمكانيات التي تجعل من ${s.title} الخيار الأمثل لمؤسستك</p>
+        <div class="sys-features">
+          ${s.features.map(f => `
+            <div class="sys-feature-card">
+              <div class="feat-icon"><i class="bi ${['bi-lightning-charge','bi-arrow-repeat','bi-phone','bi-hdd-stack','bi-shield-check','bi-graph-up','bi-people','bi-gear','bi-truck','bi-clock','bi-wallet2','bi-bar-chart'][Math.floor(Math.random()*12)]}"></i></div>
+              <h3>${f}</h3>
+              <p>نظام ${s.title} يقدم هذه الميزة بكفاءة عالية تضمن لك تجربة استخدام سلسة وأداء موثوق.</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+
+    <!-- MODULES -->
+    <div class="sys-section">
+      <div class="sys-container">
+        <h2>الوحدات والنسخ المتوفرة</h2>
+        <p class="sys-section-sub">${s.modules.length} وحدة / نسخة متكاملة تغطي جميع احتياجاتك التشغيلية</p>
+        <div class="sys-modules">
+          ${s.modules.map((m, i) => `
+            <div class="sys-module-card">
+              <i class="bi bi-check-circle-fill"></i>
+              ${m}
+              <span class="module-badge">#${String(i+1).padStart(2,'0')}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS -->
+    <div class="sys-section sys-section-alt">
+      <div class="sys-container">
+        <div class="sys-details-wrap">
+          <div class="sys-details-text">
+            <h2 style="text-align:right;">حول ${s.title}</h2>
+            <p>${s.details}</p>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> دعم فني متكامل على مدار الساعة</li>
+              <li><i class="bi bi-check-circle-fill"></i> تحديثات مستمرة وتطوير دوري</li>
+              <li><i class="bi bi-check-circle-fill"></i> تدريب مجاني لفريق العمل</li>
+              <li><i class="bi bi-check-circle-fill"></i> ضمان جودة واستقرار تام</li>
+            </ul>
+          </div>
+          <div class="sys-details-visual">
+            <i class="bi ${s.icon}"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <section class="sys-cta">
+      <h2>هل ${s.title} هو ما تبحث عنه؟</h2>
+      <p>احصل على عرض تسعير مخصص لمؤسستك — فريقنا الهندسي جاهز لتحويل رؤيتك إلى واقع رقمي</p>
+      <a href="index.html#rfq" class="btn-primary"><i class="bi bi-send"></i> اطلب مشروعك الآن</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="sys-footer">
+      <p>© 2026 <a href="index.html">المستقبل ون سوفت</a> — جميع الحقوق محفوظة.</p>
+    </footer>
+  `;
+}
+
+renderSystem();
+</script>
+</body>
+</html>
