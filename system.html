@@ -17,24 +17,13 @@
 }
 body { background: var(--color-bg-main); }
 
-/* --- Nav --- */
-.sys-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(15, 23, 42, 0.9); backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 2rem; height: 64px;
-}
-.sys-nav-back { display: inline-flex; align-items: center; gap: var(--space-xs); color: var(--color-neutral-300); text-decoration: none; font-weight: 500; font-size: var(--font-body); transition: color 0.3s; }
-.sys-nav-back:hover { color: #fff; }
-.sys-nav-brand { display: flex; align-items: center; gap: 10px; }
-.sys-nav-brand img { height: 32px; width: auto; }
-.sys-nav-brand span { font-size: 1.1rem; font-weight: 800; color: #fff; }
+/* --- Nav overrides (inherit base from style.css) --- */
+.navbar .logo span { color: #fff; }
 
 /* --- Hero --- */
 .sys-hero {
   min-height: 70vh; padding: 120px 2rem 80px; position: relative; overflow: hidden;
-  background: linear-gradient(135deg, #0f1c34 0%, #182b4f 40%, #234973 70%, #2b5c8f 100%);
+  background: linear-gradient(160deg, #000d28 0%, #002250 40%, #046cc3 70%, #0b8be0 100%);
   display: flex; align-items: center; justify-content: center; text-align: center;
 }
 .sys-hero-bg-icon {
@@ -157,7 +146,7 @@ body { background: var(--color-bg-main); }
 
 /* --- CTA --- */
 .sys-cta {
-  background: linear-gradient(135deg, #0f1c34 0%, #182b4f 50%, #2b5c8f 100%);
+  background: linear-gradient(160deg, #000d28 0%, #002250 50%, #046cc3 100%);
   text-align: center; padding: var(--space-section) 2rem;
 }
 .sys-cta h2 { font-size: var(--font-title-h2); font-weight: 800; color: #fff; margin-bottom: var(--space-sm); }
@@ -180,7 +169,7 @@ body { background: var(--color-bg-main); }
   .sys-gallery-item:first-child { grid-row: span 1; min-height: 220px; }
   .sys-details-wrap { grid-template-columns: 1fr; }
   .sys-stats { gap: 1.5rem; }
-  .sys-nav { padding: 0 1rem; }
+  .navbar { padding: 0 1rem; }
 }
 @media (max-width: 480px) {
   .sys-hero { padding: 90px 1rem 40px; min-height: auto; }
@@ -196,19 +185,43 @@ body { background: var(--color-bg-main); }
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
-<nav class="sys-nav">
-  <a href="index.html#catalog" class="sys-nav-back"><i class="bi bi-arrow-right"></i> العودة للأنظمة</a>
-  <div class="sys-nav-brand">
+
+<!-- ===== NAV (unified with index) ===== -->
+<nav class="navbar" id="navbar">
+  <div class="logo">
     <img src="img/logo.png" alt="المستقبل ون سوفت">
-    <span>المستقبل ون سوفت</span>
+    <span>المستقبل <small>ون سوفت</small></span>
   </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#hero">الرئيسية</a></li>
+    <li><a href="index.html#about">عن الشركة</a></li>
+   
+    <li><a href="index.html#catalog">أنظمتنا</a></li>
+ 
+    <li><a href="index.html#quiz">التشخيص الذكي</a></li>
+ 
+	 <li><a href="index.html#problems">حلول</a></li>
+    <li><a href="index.html#rfq" class="nav-cta">اطلب مشروعك</a></li>
+  </ul>
+  <button class="mobile-toggle" id="mobileToggle"><i class="bi bi-list"></i></button>
 </nav>
 
 <!-- ===== DYNAMIC CONTENT ===== -->
 <div id="sysApp"></div>
 
 <script>
+// ===== NAVBAR (unified with index) =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+document.getElementById('mobileToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
 // ===== Embedded Systems Data (shared with index.html) =====
 const systemsData = [
   {
@@ -342,46 +355,26 @@ const systemsData = [
   },
   {
     id: 'pharmacy', category: 'erp', icon: 'bi-capsule',
-    title: 'إدارة الصيدليات', subtitle: 'نظام صيدلة ذكي',
-    description: 'حل برمجي متكامل لتنظيم أعمال الصيدليات — إدارة المخزون الدوائي، صرف الوصفات، ونقطة بيع متكاملة.',
+    title: 'إدارة الصيدليات وشركات الأدوية', subtitle: 'نظام صيدلة ذكي',
+    description: 'نظام إدارة الصيدليات هو حل برمجي متكامل صُمم خصيصًا لمساعدة الصيدليات وشركات تجارة الأدوية (الجملة) على تنظيم أعمالها اليومية بشكل دقيق وفعّال — يجمع بين إدارة المخزون الدوائي، صرف الوصفات، البيع، متابعة الموردين، وإصدار التقارير في منصة واحدة.',
     kpis: [
       { icon: 'bi-box-seam', text: 'مخزون دوائي' },
-      { icon: 'bi-file-text', text: 'وصفات' },
-      { icon: 'bi-shield-check', text: 'أمان' },
+      { icon: 'bi-file-text', text: 'وصفات إلكترونية' },
+      { icon: 'bi-shield-check', text: 'أمان وتدقيق' },
     ],
     features: [
-      'إدارة المخزون', 'تتبع الباتش والتاريخ', 'صرف الوصفات',
-      'نقطة بيع (POS)', 'إدارة الموردين', 'تقارير وتحليلات',
+      'إدارة المخزون مع تتبع الباتش والتاريخ', 'تنبيهات انتهاء الصلاحية وانخفاض المخزون',
+      'صرف الوصفات إلكترونيًا مع التداخلات الدوائية', 'نقطة بيع (POS) بالباركود',
+      'إدارة الموردين والمشتريات', 'تقارير مالية ومبيعات وتحليلات',
     ],
     modules: [
-      'المخزون الدوائي', 'الوصفات الطبية', 'نقطة البيع',
-      'الموردين والمشتريات', 'التقارير المالية', 'الأمان والصلاحيات',
+      'إدارة المخزون الدوائي', 'الوصفات وصرف الأدوية', 'نقطة البيع (POS)',
+      'الموردين والمشتريات', 'التقارير والتحليلات', 'الأمان وإدارة المستخدمين',
     ],
-    details: 'نظام متكامل يجمع بين إدارة المخزون، صرف الأدوية، البيع المباشر، متابعة الموردين، وإصدار التقارير في منصة واحدة.',
-    value: 'تقليل الأخطاء الدوائية، تحسين إدارة المخزون، تجنب خسائر الأدوية منتهية الصلاحية، وتسريع عملية البيع.',
+    details: 'نظام متكامل صُمم خصيصًا للصيدليات وشركات الأدوية — إدارة المخزون مع تتبع الباتش وتاريخ الانتهاء، تنبيهات عند قرب انتهاء الصلاحية، صرف الوصفات إلكترونيًا مع دعم الأدوية البديلة والتداخلات الدوائية، نقطة بيع سريعة بالباركود مع دعم وسائل دفع متعددة، إدارة الموردين مع إنشاء أوامر الشراء وتتبع الشحنات، تقارير مالية ومبيعات وتحليل الأدوية الأكثر مبيعًا والراكدة، وصلاحيات مختلفة للمستخدمين مع سجل تدقيق وحماية البيانات.',
+    value: 'تقليل الأخطاء الدوائية الناتجة عن العمل اليدوي، تحسين إدارة المخزون وتجنب خسائر الأدوية منتهية الصلاحية، تسريع عملية البيع وزيادة رضا العملاء، تسهيل الرقابة الداخلية والتوافق مع الجهات التنظيمية، وتوفير رؤية شاملة تساعد الإدارة في التخطيط والتطوير.',
     screenshots: 3
   },
-  {
-    id: 'future', category: 'future', icon: 'bi-stars',
-    title: 'الأنظمة المستقبلية', subtitle: 'جاهزة وقيد التفعيل',
-    description: 'أنظمة مبتكرة جاهزة ومكتملة الأدوات — تمثل عمق المكتب الابتكاري وتنتظر دخول خط الإنتاج قريباً.',
-    kpis: [
-      { icon: 'bi-clock', text: 'قريباً' },
-      { icon: 'bi-rocket', text: 'جاهزة' },
-      { icon: 'bi-gem', text: 'مبتكرة' },
-    ],
-    features: [
-      'أتمتة التعليم', 'واتساب ذكي', 'إدارة عقارات',
-      'نظام مخزني مستقل', 'جاهزة للتفعيل', 'دعم فني كامل',
-    ],
-    modules: [
-      'نظامين مدرسيين', 'الواتساب الذكي', 'إدارة العقارات',
-      'النظام المخزني المستقل',
-    ],
-    details: 'أنظمة جاهزة ومكتملة تمثل عمق المكتب الابتكاري — الأنظمة المدرسية، نظام الواتساب الذكي، إدارة العقارات، والنظام المخزني المستقل.',
-    value: 'شريك تكنولوجي مستدام ينمو مع نمو السوق — أنظمة استباقية تجعلك مستعداً للغد قبل أن يصل إليه.',
-    screenshots: 1
-  }
 ];
 
 // ===== Render System Detail =====
@@ -418,7 +411,7 @@ function renderSystem() {
   const app = document.getElementById('sysApp');
   app.innerHTML = `
     <!-- HERO -->
-    <section class="sys-hero">
+    <section class="sys-hero background-gradient-pro">
       <i class="bi ${s.icon} sys-hero-bg-icon"></i>
       <div class="sys-hero-content">
         <div class="sys-hero-icon"><i class="bi ${s.icon}"></i></div>
@@ -512,7 +505,7 @@ function renderSystem() {
     </div>
 
     <!-- CTA -->
-    <section class="sys-cta">
+    <section class="sys-cta background-gradient-pro">
       <h2>هل ${s.title} هو ما تبحث عنه؟</h2>
       <p>احصل على عرض تسعير مخصص لمؤسستك — فريقنا الهندسي جاهز لتحويل رؤيتك إلى واقع رقمي</p>
       <a href="index.html#rfq" class="btn-primary"><i class="bi bi-send"></i> اطلب مشروعك الآن</a>
