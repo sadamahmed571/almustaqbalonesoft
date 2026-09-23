@@ -226,7 +226,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 const systemsData = [
   {
     id: 'erp', category: 'erp', icon: 'bi-hdd-network',
-    title: 'ون سوفت ERP', subtitle: 'التكامل والربط الذكي',
+    title: 'المستقبل ون سوفت ERP', subtitle: 'التكامل والربط الذكي',
     description: 'منظومة برمجية متكاملة لتخطيط موارد المنشآت بمختلف أنشطتها — ربط فروع متعددة، مزامنة لحظية، وتطبيق أندرويد مخصص.',
     kpis: [
       { icon: 'bi-link-45deg', text: 'ربط فوري' },
@@ -238,12 +238,39 @@ const systemsData = [
       'معالجة Local-first', 'تشفير محاسبي كامل', 'تقارير ذكية',
     ],
     modules: [
-      'النسخة العامة', 'إدارة الصيدليات', 'شركات تجارة الأدوية',
-      'المستشفيات والمراكز الطبية', 'المختبرات الطبية', 'العيادات العامة',
-      'عيادات الأسنان', 'شؤون الموظفين HR', 'المطاعم والكافيهات',
-      'إدارة الزكاة', 'مكاتب الخدمات', 'المخابز والحلويات',
+      '01 — عام - مشترك لكل المشاريع',
+      '02 — شركات تجارية / تجاري',
+      '03 — سوبر ماركت',
+      '04 — بهارات',
+      '05 — مفروشات',
+      '06 — صيدليات',
+      '07 — أدوية - جملة / شركات تجارة الأدوية',
+      '08 — مستشفيات ومراكز طبية',
+      '09 — مختبرات',
+      '10 — عيادات طبية عامة',
+      '11 — عيادات أسنان',
+      '12 — إدارة شؤون الموظفين',
+      '13 — مطاعم وكافيهات',
+      '14 — إدارة المخابز والحلويات',
+      '15 — دواجن',
+      '16 — مصانع',
+      '17 — مقاولات',
+      '18 — ملابس',
+      '19 — قطع غيار',
+      '20 — إلكترونيات',
+      '21 — نظم معلومات',
+      '22 — سفريات',
+      '23 — فنادق',
+      '24 — خيري',
+      '25 — إدارة الزكاة',
+      '26 — مكاتب خدمات',
+      '27 — محطات الوقود',
+      '28 — الشحن والتخليص الجمركي',
+      '29 — إدارة المستلمين والعمولات',
+      '30 — مركز فحص وصيانة المركبات',
+      '31 — أخرى',
     ],
-    details: 'نظام ERP شامل يدعم 12 قطاعاً مختلفاً. يتميز بالمزامنة اللحظية بين الفروع، وتطبيق أندرويد للإدارة عن بُعد، ونظام تشفير محاسبي متكامل لحماية البيانات المالية.',
+    details: 'نظام ERP شامل يدعم 31 نشاطاً وقطاعاً مختلفاً بدون تكرار في المسميات. يتميز بالمزامنة اللحظية بين الفروع، وتطبيق أندرويد للإدارة عن بُعد، ونظام تشفير محاسبي متكامل لحماية البيانات المالية.',
     value: 'القضاء على الفوضى الإدارية وشتات البيانات بين الفروع — لوحة تحكم موحدة تمنحك "الحقيقة الكاملة" عن منشأتك في أي وقت ومن أي مكان.',
     screenshots: 4
   },
@@ -382,6 +409,16 @@ function getParam(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
 
+const systemImages = {
+  erp: ['img/real-systems/erp-main-blue.png','img/smart-solutions/desktop-erp.webp','img/smart-solutions/legacy-erp.webp','img/smart-solutions/legacy-operations.webp'],
+  medical: ['img/real-systems/smartclinic-dashboard-real.png','img/smart-solutions/smartclinic-main.webp','img/smart-solutions/smartclinic-reception.webp','img/smart-solutions/smartclinic-doctor.webp','img/smart-solutions/smartclinic-pharmacy.webp','img/smart-solutions/smartclinic-reports.webp'],
+  electricity: ['img/real-systems/onevolt-electricity.png'],
+  restaurant: ['img/real-systems/restaurant-pos.png','img/smart-solutions/desktop-restaurant.webp'],
+  pharmacy: ['img/smart-solutions/desktop-pharmacy.webp','img/smart-solutions/smartclinic-pharmacy.webp'],
+  inventory: ['img/smart-solutions/desktop-inventory.webp'],
+  dental: ['img/real-systems/dental-main.png','img/real-systems/dental-ai.png','img/real-systems/dental-prescription.png','img/real-systems/dental-web-presentation.png']
+};
+
 function renderSystem() {
   const id = getParam('id') || 'erp';
   const s = systemsData.find(sys => sys.id === id);
@@ -394,17 +431,18 @@ function renderSystem() {
   document.getElementById('pageTitle').textContent = document.title;
 
   const galleryItems = [];
-  for (let i = 1; i <= (s.screenshots || 3); i++) {
-    const isHero = i === 1;
-    const badges = ['لوحة التحكم الرئيسية', 'شاشة التقارير', 'إدارة المخزون', 'الشاشة الرئيسية', 'إعدادات النظام', 'تحليلات الأداء'];
-    galleryItems.push(`
-      <div class="sys-gallery-item${isHero ? '' : ''}">
-        <div class="gallery-placeholder">
-          <i class="bi ${['bi-display','bi-graph-up-arrow','bi-box-seam','bi-grid-3x3-gap','bi-sliders2','bi-bar-chart-line'][i-1]}"></i>
-          <span>${badges[i-1] || `لقطة شاشة ${i}`}</span>
-        </div>
-        <span class="gallery-badge"><i class="bi bi-camera"></i> ${badges[i-1] || `شاشة ${i}`}</span>
+  const actualImages = systemImages[s.id] || [];
+  const badges = ['لوحة التحكم الرئيسية', 'شاشة التقارير', 'إدارة العمليات', 'الشاشة الرئيسية', 'إعدادات النظام', 'تحليلات الأداء'];
+  if (actualImages.length) {
+    actualImages.forEach((src, i) => galleryItems.push(`
+      <div class="sys-gallery-item">
+        <a href="${src}" target="_blank"><img src="${src}" alt="${s.title} - ${badges[i] || 'واجهة النظام'}" style="width:100%;height:100%;min-height:220px;object-fit:cover;display:block;"></a>
+        <span class="gallery-badge"><i class="bi bi-camera"></i> ${badges[i] || `شاشة ${i+1}`}</span>
       </div>
+    `));
+  } else {
+    for (let i = 1; i <= (s.screenshots || 3); i++) galleryItems.push(`
+      <div class="sys-gallery-item"><div class="gallery-placeholder"><i class="bi bi-display"></i><span>${badges[i-1] || `لقطة شاشة ${i}`}</span></div></div>
     `);
   }
 

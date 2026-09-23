@@ -202,7 +202,7 @@ body { font-family: 'Tajawal', sans-serif; background: var(--color-bg-main); col
 @media (max-width: 768px) {
   .brand-wrap { flex-direction: column; gap: 2rem; text-align: center; }
   .brand-values { justify-content: center; }
-  .brand-visual img { max-width: 280px; }
+  .brand-visual img { max-width: 180px; }
 }
 
 /* ============ SECTION COMMON ============ */
@@ -542,7 +542,7 @@ body { font-family: 'Tajawal', sans-serif; background: var(--color-bg-main); col
   .footer-grid { grid-template-columns: 1fr; }
   .brand-wrap { flex-direction: column; gap: 2rem; text-align: center; }
   .brand-values { justify-content: center; }
-  .brand-visual img { max-width: 280px; }
+  .brand-visual img { max-width: 180px; }
 }
 
 @media (max-width: 480px) {
@@ -646,90 +646,4 @@ body { font-family: 'Tajawal', sans-serif; background: var(--color-bg-main); col
 
 
 .rfq-btn { width: 100%; justify-content: center; padding: 0.75rem 1.5rem; font-size: var(--font-body); background: linear-gradient(160deg, #000d28 0%, #002250 50%, #046cc3 100%); color: #fff; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.3s; display: inline-flex; align-items: center; gap: var(--space-xs); text-decoration: none; box-shadow: 0 4px 15px rgba(4, 108, 195, 0.3); }
-.rfq-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(4, 108, 195, 0.5); }
-
-/* ============ CONTACT WIDGET ============ */
-.contact-section {
-  padding: var(--space-section) 2rem;
-  background: linear-gradient(160deg, #000d28 0%, #002250 50%, #046cc3 100%);
-  position: relative; overflow: hidden; text-align: center;
-}
-.contact-section::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(94,178,228,0.12) 0%, transparent 70%);
-  pointer-events: none;
-}
-.contact-section h2 { font-size: var(--font-title-h2); font-weight: 800; color: #fff; margin-bottom: var(--space-xs); position: relative; }
-.contact-section .contact-sub { color: var(--color-neutral-400); font-size: var(--font-body); max-width: 500px; margin: 0 auto var(--space-xl); position: relative; }
-.contact-grid {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-md);
-  max-width: 800px; margin: 0 auto; position: relative;
-}
-.contact-card {
-  flex: 1 1 200px; min-width: 180px; max-width: 260px;
-  padding: var(--space-lg); border-radius: 20px;
-  background: rgba(255,255,255,0.06); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.1);
-  text-decoration: none; color: #fff; cursor: pointer;
-  display: flex; flex-direction: column; align-items: center; gap: var(--space-sm);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative; overflow: hidden;
-}
-.contact-card::before {
-  content: ''; position: absolute; inset: 0; border-radius: 20px;
-  opacity: 0; transition: opacity 0.4s;
-  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 100%);
-}
-.contact-card:hover { transform: translateY(-8px) scale(1.03); border-color: rgba(255,255,255,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-.contact-card:hover::before { opacity: 1; }
-.contact-card:active { transform: scale(0.97); }
-.contact-card .contact-icon {
-  width: 56px; height: 56px; border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem; transition: all 0.4s;
-}
-.contact-card:hover .contact-icon { transform: scale(1.1) rotate(-5deg); }
-.contact-card .contact-label { font-size: var(--font-small); color: var(--color-neutral-400); font-weight: 500; }
-.contact-card .contact-value { font-size: 1rem; font-weight: 700; color: #fff; direction: ltr; }
-.contact-card.phone .contact-icon { background: rgba(34,197,94,0.2); color: #22c55e; }
-.contact-card.phone:hover { border-color: rgba(34,197,94,0.4); box-shadow: 0 20px 40px rgba(34,197,94,0.15); }
-.contact-card.whatsapp .contact-icon { background: rgba(37,211,102,0.2); color: #25D366; }
-.contact-card.whatsapp:hover { border-color: rgba(37,211,102,0.4); box-shadow: 0 20px 40px rgba(37,211,102,0.15); }
-.contact-card.email .contact-icon { background: rgba(59,130,246,0.2); color: #3b82f6; }
-.contact-card.email:hover { border-color: rgba(59,130,246,0.4); box-shadow: 0 20px 40px rgba(59,130,246,0.15); }
-.contact-card .copy-toast {
-  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%) translateY(20px);
-  background: rgba(34,197,94,0.9); color: #fff; font-size: 0.7rem; padding: 4px 12px;
-  border-radius: 50px; opacity: 0; transition: all 0.3s; white-space: nowrap; pointer-events: none;
-}
-.contact-card .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-/* Floating WhatsApp */
-.float-whatsapp {
-  position: fixed; bottom: 24px; left: 24px; z-index: 999;
-  width: 56px; height: 56px; border-radius: 50%;
-  background: #25D366; color: #fff; border: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem; text-decoration: none;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-  transition: all 0.3s ease;
-  animation: floatPulse 2s ease-in-out infinite;
-}
-.float-whatsapp:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.6); animation: none; }
-@keyframes floatPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
-  50% { transform: scale(1.08); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
-}
-
-@media (max-width: 768px) {
-  .contact-section { padding: var(--space-section) 1rem; }
-  .contact-card { flex: 1 1 160px; min-width: 140px; padding: var(--space-md); }
-  .float-whatsapp { bottom: 16px; left: 16px; width: 48px; height: 48px; font-size: 1.5rem; }
-}
-@media (max-width: 480px) {
-  .contact-grid { gap: var(--space-sm); }
-  .contact-card { flex: 1 1 140px; min-width: 120px; padding: var(--space-sm); }
-  .contact-card .contact-icon { width: 44px; height: 44px; font-size: 1.3rem; }
-  .contact-card .contact-value { font-size: 0.85rem; }
-  .float-whatsapp { bottom: 12px; left: 12px; width: 44px; height: 44px; font-size: 1.3rem; }
-}
+ .rfq-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(4, 108, 195, 0.5); }
