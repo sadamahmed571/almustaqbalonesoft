@@ -646,4 +646,194 @@ body { font-family: 'Tajawal', sans-serif; background: var(--color-bg-main); col
 
 
 .rfq-btn { width: 100%; justify-content: center; padding: 0.75rem 1.5rem; font-size: var(--font-body); background: linear-gradient(160deg, #000d28 0%, #002250 50%, #046cc3 100%); color: #fff; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.3s; display: inline-flex; align-items: center; gap: var(--space-xs); text-decoration: none; box-shadow: 0 4px 15px rgba(4, 108, 195, 0.3); }
- .rfq-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(4, 108, 195, 0.5); }
+.rfq-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(4, 108, 195, 0.5); }
+
+/* ============ CONTACT SECTION ============ */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.contact-card {
+  background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(16px);
+  border: 1px solid rgba(66, 189, 223, 0.2); border-radius: 20px;
+  padding: 2rem 1.5rem; text-align: center; position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.contact-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(66, 189, 223, 0.2);
+  border-color: rgba(66, 189, 223, 0.5);
+}
+.contact-icon {
+  width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 1rem;
+  display: flex; align-items: center; justify-content: center; font-size: 2rem;
+  background: var(--gradient-soft-bg); color: var(--color-accent-400);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.contact-card h3 { color: #fff; font-size: 0.95rem; margin-bottom: 0.5rem; font-weight: 500; }
+.contact-number { color: var(--color-accent-300); font-size: 1.3rem; font-weight: 800; margin-bottom: 1.5rem; letter-spacing: 1px; }
+.network-badge {
+  position: absolute; top: 1rem; left: 1rem; font-size: 0.7rem; font-weight: 700;
+  padding: 0.3rem 0.6rem; border-radius: 30px;
+}
+.network-badge.yemen-mobile { background: rgba(255, 107, 107, 0.15); color: #ff6b6b; border: 1px solid rgba(255, 107, 107, 0.3); }
+.network-badge.you-telecom { background: rgba(255, 193, 7, 0.15); color: #ffc107; border: 1px solid rgba(255, 193, 7, 0.3); }
+.contact-actions { display: flex; flex-direction: row; justify-content: center; gap: 0.8rem; }
+.contact-actions a {
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 0.7rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.9rem;
+  transition: all 0.3s;
+}
+.btn-call { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid rgba(255,255,255,0.1); }
+.btn-call:hover { background: rgba(255, 255, 255, 0.15); }
+.btn-wa { background: #25d366; color: #fff; border: none; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+.btn-wa:hover { background: #20bd5a; transform: scale(1.03); }
+.fb-card { background: rgba(24, 119, 242, 0.05); border-color: rgba(24, 119, 242, 0.3); }
+.fb-card:hover { box-shadow: 0 15px 35px rgba(24, 119, 242, 0.25); border-color: rgba(24, 119, 242, 0.5); }
+.fb-icon { background: #1877f2; color: #fff; box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3); }
+.btn-fb {
+  background: #1877f2; color: #fff; padding: 0.5rem 1rem; border-radius: 50px;
+  text-decoration: none; font-weight: 500; font-size: 0.85rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  transition: all 0.3s; width: auto; box-shadow: 0 4px 15px rgba(24, 119, 242, 0.3);
+}
+.btn-fb:hover { background: #166fe5; transform: scale(1.03); color: #fff; }
+@keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
+
+/* ============ GALLERY & LIGHTBOX ============ */
+.onesoft-image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+  margin-top: 3rem;
+}
+.onesoft-gallery-card {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(66, 189, 223, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+}
+.onesoft-gallery-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.onesoft-gallery-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  border-color: rgba(66, 189, 223, 0.4);
+}
+.onesoft-gallery-card:hover img {
+  transform: scale(1.05);
+}
+.gallery-lightbox {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 15, 30, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+.gallery-lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 10001;
+  transition: color 0.3s;
+}
+.lightbox-close:hover { color: var(--color-accent-400); }
+.lightbox-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10001;
+  transition: all 0.3s;
+  backdrop-filter: blur(4px);
+}
+.lightbox-btn:hover { background: rgba(0, 0, 0, 0.9); color: var(--color-accent-400); }
+.lightbox-next { left: 30px; }
+.lightbox-prev { right: 30px; }
+@media (max-width: 768px) {
+  .onesoft-image-gallery { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .onesoft-gallery-card img { height: 220px; }
+  .lightbox-btn { width: 45px; height: 45px; font-size: 1.5rem; }
+  .lightbox-next { left: 10px; }
+  .lightbox-prev { right: 10px; }
+  .lightbox-close { top: 15px; right: 15px; font-size: 2rem; }
+}
+
+/* ============ PRELOADER ============ */
+#preloader {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--color-bg-main); z-index: 99999;
+  display: flex; justify-content: center; align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#preloader.fade-out { opacity: 0; visibility: hidden; }
+.pulse-logo { width: 100px; height: auto; animation: pulse-scale 1.5s infinite ease-in-out; }
+@keyframes pulse-scale {
+  0% { transform: scale(0.9); opacity: 0.7; filter: drop-shadow(0 0 10px rgba(66, 189, 223, 0.3)); }
+  50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 20px rgba(66, 189, 223, 0.7)); }
+  100% { transform: scale(0.9); opacity: 0.7; filter: drop-shadow(0 0 10px rgba(66, 189, 223, 0.3)); }
+}
+
+/* ============ FLOATING WIDGETS ============ */
+.floating-widgets {
+  position: fixed; bottom: 30px; left: 30px;
+  display: flex; flex-direction: column; gap: 15px; z-index: 999;
+}
+.btn-floating {
+  width: 55px; height: 55px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 1.8rem;
+  color: #fff; cursor: pointer; border: none; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none;
+}
+.btn-whatsapp {
+  background: #25d366; animation: pulse 2s infinite;
+}
+.btn-whatsapp:hover { background: #20bd5a; transform: scale(1.1) rotate(5deg); color: #fff; }
+.btn-top {
+  background: var(--color-primary-500); opacity: 0; visibility: hidden; transform: translateY(20px);
+}
+.btn-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.btn-top:hover { background: var(--color-primary-400); transform: translateY(-5px); color: #fff; }
+@media (max-width: 768px) {
+  .floating-widgets { bottom: 20px; left: 20px; }
+  .btn-floating { width: 45px; height: 45px; font-size: 1.4rem; }
+}
